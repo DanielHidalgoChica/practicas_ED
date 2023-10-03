@@ -1,0 +1,5 @@
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/CMakeFiles/image.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/CMakeFiles/negativo.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/CMakeFiles/doc_doxygen.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

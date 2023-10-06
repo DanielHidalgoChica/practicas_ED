@@ -7,6 +7,7 @@
 #include <cstring>
 #include <cassert>
 #include <iostream>
+#include <cmath>
 
 #include <image.h>
 #include <imageIO.h>
@@ -176,4 +177,57 @@ bool Image::operator==(const Image & other){
     }
 
     return iguales;
+}
+
+double Image::Mean(int i, int j, int height, int width) const {
+
+    double mean = 0;
+
+    if (height * width!= 0) { // Si hay puntos
+        // Se acumulan las sumas de los píxeles en cuestión.
+        for (int fil = i; fil < i + width; fil++)
+            for (int col = j; col < j + height; col++)
+                mean += get_pixel(fil, col);
+
+        // Se divide entre el número de puntos.
+        mean /= height * width;
+    }
+
+    return mean;
+}
+
+
+// Genera una imagen aumentada 2x.
+Image Image::Zoom2X() const{
+
+    const int NFILS = 2*get_rows()-1;
+    const int NCOLS = 2*get_cols()-1;
+
+    // Genero mi imagen aumentada con todos los píxeles a 0.
+    Image zoomed(NFILS, NCOLS);
+
+    // Itero sobre cada pixel para cambiarlo
+    for(int fil=0; fil<NFILS; ++fil)
+        for(int col=0; col<NCOLS; col++){
+
+            // Píxel original
+            if (fil%2==0 && col%2==0) {
+                byte original_pixel = get_pixel(fil/2, col/2);
+                zoomed.set_pixel(fil, col, original_pixel);
+            }
+
+            // Pixel insertado. Hay que calcular la media.
+            else {
+
+                byte average_pixel;
+
+                // Como (int) trunca, tenemos que al dividir entre dos nos quedamos con la fila o columna deseada
+                // El operador % nos permite diferenciar si la columna, fila, o ambas son insertadas.
+                average_pixel = round(Mean((int)(fil/2), (int)(col/2), 1+fil%2, 1+col%2));
+
+                zoomed.set_pixel(fil, col, average_pixel);
+            }
+        }
+
+    return zoomed;
 }

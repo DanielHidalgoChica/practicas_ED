@@ -123,7 +123,7 @@ public :
 
     /**
       * @brief Constructor por defecto .
-      * @post Genera una instancia de la clase Imagen con O filas y O colunmas.
+      * @post Genera una instancia de la clase Imagen con O filas y O columnas.
       * @return Imagen, el objeto imagen creado.
       */
     Image();
@@ -133,8 +133,8 @@ public :
       * @param nrows Número de filas de la imagen.
       * @param ncols Número de columnas de la imagen.
       * @param value defecto Valor con el que inicializar los píxeles de la imagen . Por defecto O.
-      * @pre n fils > O Y n_cols > O
-      * @post La imagen creada es de n_fils y n_cols columnas. Estará inicializada al valor por defecto.
+      * @pre @p nrows > O y @p ncols > O
+      * @post La imagen creada es de @p nrows y @p ncols columnas. Estará inicializada al valor por defecto.
       * @return Imagen, el objeto imagen creado.
       */
     Image(int nrows, int ncols, byte value=0);
@@ -254,7 +254,18 @@ void set_pixel (int i, int j, byte value);
     // Modifica el contraste de una Imagen .
     void AdjustContrast (byte in1, byte in2, byte out1, byte out2);
 
-    // Calcula la media de los píxeles de una imagen entera o de un fragmento de ésta.
+
+    /**
+     * @brief Calcula la media de los píxeles de una imagen entera o de un fragmento de ésta.
+     * @param i Fila de la esquina superior izquierda desde donde empieza el recorte
+     * @param j Columna de la esquina superior izquierda desde donde empieza el recorte
+     * @param height Número de filas que ocupa el recorte.
+     * @param width Número de columnas que ocupa el recorte.
+     * @return La media de los píxeles del fragmento buscado.
+     * @pre 0 < @p height, @p width, @p i, @p j
+     * @pre 0<= @p i+height <= get_rows()
+     * @pre 0<= @p j+width  <= get_cols()
+     */
     double Mean (int i, int j, int height, int width) const;
 
     // Genera un icono como reducción de una imagen.
@@ -263,7 +274,10 @@ void set_pixel (int i, int j, byte value);
     // Genera una subimagen.
     Image Crop(int nrow, int ncol, int height, int width) const;
 
-    // Genera una imagen aumentada 2x.
+    /**
+     * @brief Genera una imagen aumentada 2x.
+     * @return La imagen generada aumentada 2x.
+     */
     Image Zoom2X() const;
 
 

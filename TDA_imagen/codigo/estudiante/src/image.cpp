@@ -231,3 +231,19 @@ Image Image::Zoom2X() const{
 
     return zoomed;
 }
+
+// Genera un icono como reducción de una imagen.
+Image Image::Subsample(int factor) const{
+
+    Image icono = Image((int)(get_rows()/factor), (int)(get_cols()/factor));
+
+    for(int fil=0; fil<icono.get_rows(); fil++)
+        for(int col=0; col<icono.get_cols(); col++){
+
+            // Cada pixel resultante es la media de un cuadrado de lado factor
+            byte average = round(Mean(factor*fil, factor*col, factor, factor));
+            icono.set_pixel(fil, col, average);
+        }
+
+    return icono;
+}

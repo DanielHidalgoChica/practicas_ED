@@ -268,7 +268,15 @@ void set_pixel (int i, int j, byte value);
      */
     double Mean (int i, int j, int height, int width) const;
 
-    // Genera un icono como reducción de una imagen.
+    /**
+     * @brief Genera un icono como reducción de una imagen.
+     * @param factor Factor de reducción de la imagen original respecto al icono
+     * @return La imagen iconizada
+     * @pre factor > 0
+     * @post la imagen no se modifica
+     * @post La imagen resultante tendrá tamaño int(filas/factor) X int(columnas/factor),
+     *              descartando los decimales de la división.
+     */
     Image Subsample(int factor) const;
 
     // Genera una subimagen.

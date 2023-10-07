@@ -270,6 +270,14 @@ void set_pixel (int i, int j, byte value);
 
     // Baraja pseudoaleatoriamente las filas de una imagen.
     void ShuffleRows();
+
+    /**
+     * @brief Operador ==, para comparar dos imágenes
+     * @param other
+     * @return  @true si ambas imágenes son iguales pixel a pixel
+     *          @false si, al menos, hay un pixel distinto o tienen dimensiones distintas.
+     */
+    bool operator==(const Image & other);
 } ;
 
 

@@ -159,3 +159,21 @@ bool Image::Save (const char * file_path) const {
     return WritePGMImage(file_path, p, rows, cols);
 }
 
+bool Image::operator==(const Image & other){
+
+    bool iguales = true;
+
+    // Han de tener las mismas filas y columnas.
+    iguales &= this->get_rows() == other.get_rows();
+    iguales &= this->get_cols() == other.get_cols();
+
+    int i=0;
+    while (iguales && i<this->size()){
+
+        // Compara cada píxel
+        iguales = this->get_pixel(i) == other.get_pixel(i);
+        i++;
+    }
+
+    return iguales;
+}

@@ -248,7 +248,10 @@ void set_pixel (int i, int j, byte value);
       */
     bool Load (const char * file_path);
 
-    // Invierte
+      /**
+      * @brief Calcula el negativo de la imagen llamadora
+      * @post Cada byte de la imagen queda correspondido a su opuesto en la escala de grises
+      */
     void Invert();
 
     // Modifica el contraste de una Imagen .

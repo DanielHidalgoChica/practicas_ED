@@ -282,7 +282,22 @@ void set_pixel (int i, int j, byte value);
      */
     Image Subsample(int factor) const;
 
-    // Genera una subimagen.
+    /**
+     * @brief Hace un recorte de una imagen
+     * @param nrow Fila inicial para recortar
+     * @param ncol Columna inicial para recortar
+     * @param height Número de filas del recorte
+     * @param width Número de columnas del recorte
+     * @return La imagen recortada
+     * @pre 0 <= nrow
+     * @pre 0 <= ncol
+     * @pre 0 <= height
+     * @pre 0 <= width
+     * @pre 0 <= nrow + height <= rows
+     * @pre 0 <= ncols + width <= cols
+     * @post la imagen llamadora no se modifica
+     * @post La imagen devuelta tendrá el tamaño especificado en los parámetros
+     */
     Image Crop(int nrow, int ncol, int height, int width) const;
 
     /**

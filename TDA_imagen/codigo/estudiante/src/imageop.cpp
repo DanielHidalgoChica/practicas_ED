@@ -103,7 +103,14 @@ void Image::Invert() {
         this->set_pixel(i,255-(this->get_pixel(i)));
 }
 
-
+Image Image::Crop(int nrow, int ncol, int height, int width) const {
+    Image return_img(height,width);
+    // Rellenamos la imagen resultante
+    for (int i = 0; i < height; i++)
+        for (int j = 0; j < width; j++)
+            return_img.set_pixel(i,j,this->get_pixel(nrow+i,ncol+j));
+    return return_img;
+}
 
 
 

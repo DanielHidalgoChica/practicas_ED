@@ -76,11 +76,9 @@ private :
     int cols;
 
     /**
-      @brief Puntero inicializado en img[0]
-             para destructor
+      @brief Puntero inicializado en img[0] que almacena el inicio de la representación en memoria.
     **/
-
-    byte * dtry_ptr;
+    byte * orgn_ptr;
 
     /**
       @brief Initialize una imagen.
@@ -305,10 +303,7 @@ void set_pixel (int i, int j, byte value);
      * @param height Número de filas del recorte
      * @param width Número de columnas del recorte
      * @return La imagen recortada
-     * @pre 0 <= nrow
-     * @pre 0 <= ncol
-     * @pre 0 <= height
-     * @pre 0 <= width
+     * @pre 0 <= nrow, ncol, height, width
      * @pre 0 <= nrow + height <= rows
      * @pre 0 <= ncols + width <= cols
      * @post la imagen llamadora no se modifica
@@ -324,23 +319,39 @@ void set_pixel (int i, int j, byte value);
 
 
 
-    // Baraja pseudoaleatoriamente las filas de una imagen.
-    // Código poco eficiente, copiado
-    void ShuffleRows();
+    /**
+	 * @brief Método que baraja pseudoaleatoriamente las filas de una imagen.
+     * 			Código de eficiencia de orden rows*cols.
+	 * @pre get_rows() < 9973
+	 * @post El objeto implícito contiene la misma imagen pero con las filas cambiadas
+	 * 			según el siguiente algoritmo:
+	 * 			r' = r*p mod(get_rows())
+	 *
+	 * 			donde r' es el nuevo índice de la fila r y p es un coprimo de rows.
+	 * 			En este algoritmo usamos p=9973, pero se podría modificar.
+	 */
+    void ShuffleRows_noeff();
 
-    // Hacemos un ShuffleRows eficiente usando un uso
-    // distinto de nuestra representación de la imagen
-    // (necesitamos añadir a la clase un campo que guarde
-    // el puntero al primer elemento del vector
-    // dinámico "matriz desenrollada" = original img[0][0])
-    // y cambiar el destructor
+	/**
+	 * @brief Método que baraja pseudoaleatoriamente las filas de una imagen.
+	 * 			Código de eficiencia de orden rows.
+	 * 			Más eficiente, pero a costa de varias la representación de nuestro tipo.
+	 * @pre get_rows() < 9973
+	 * @post El objeto implícito contiene la misma imagen pero con las filas cambiadas
+	 * 			según el siguiente algoritmo:
+	 * 			r' = r*p mod(get_rows())
+	 *
+	 * 			donde r' es el nuevo índice de la fila r y p es un coprimo de rows.
+	 * 			En este algoritmo usamos p=9973, pero se podría modificar.
+	 */
+	 void ShuffleRows_eff();
 
-    void ShuffleRows_eff();
+
     /**
      * @brief Operador ==, para comparar dos imágenes
      * @param other
-     * @return  @true si ambas imágenes son iguales pixel a pixel
-     *          @false si, al menos, hay un pixel distinto o tienen dimensiones distintas.
+     * @retval  @true si ambas imágenes son iguales pixel a pixel
+     * @retval @false si, al menos, hay un pixel distinto o tienen dimensiones distintas.
      */
     bool operator==(const Image & other);
 } ;

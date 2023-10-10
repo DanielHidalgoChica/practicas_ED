@@ -35,8 +35,8 @@ double Image::Mean(int i, int j, int height, int width) const {
 
     if (height * width!= 0) { // Si hay puntos
         // Se acumulan las sumas de los píxeles en cuestión.
-        for (int fil = i; fil < i + width; fil++)
-            for (int col = j; col < j + height; col++)
+        for (int fil = i; fil < i + height; fil++)
+            for (int col = j; col < j + width; col++)
                 mean += get_pixel(fil, col);
 
         // Se divide entre el número de puntos.
@@ -125,7 +125,7 @@ void Image::AdjustContrast (byte in1, byte in2, byte out1, byte out2){
 
 	for (int k=0; k<size(); k++) {
 
-		byte nvalue = round(out1 + M * (k - in1));
+		byte nvalue = (byte)round(out1 + (M * (get_pixel(k) - in1)));
 		set_pixel(k, nvalue);
 	}
 }

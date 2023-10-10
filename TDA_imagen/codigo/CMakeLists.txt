@@ -36,7 +36,8 @@ target_link_libraries(icono LINK_PUBLIC image)
 endif()
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/contraste.cpp)
-add_executable(contraste ${BASE_FOLDER}/src/contraste.cpp)
+add_executable(contraste ${BASE_FOLDER}/src/contraste.cpp
+        estudiante/src/contraste.cpp)
 target_link_libraries(contraste LINK_PUBLIC image)
 endif()
 

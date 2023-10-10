@@ -73,7 +73,7 @@ Image Image::Zoom2X() const{
 
                 // Como (int) trunca, tenemos que al dividir entre dos nos quedamos con la fila o columna deseada
                 // El operador % nos permite diferenciar si la columna, fila, o ambas son insertadas.
-                average_pixel = round(Mean((int)(fil/2), (int)(col/2), 1+fil%2, 1+col%2));
+                average_pixel = (byte)round(Mean((int)(fil/2), (int)(col/2), 1+fil%2, 1+col%2));
 
                 zoomed.set_pixel(fil, col, average_pixel);
             }
@@ -110,6 +110,24 @@ Image Image::Crop(int nrow, int ncol, int height, int width) const {
         for (int j = 0; j < width; j++)
             return_img.set_pixel(i,j,this->get_pixel(nrow+i,ncol+j));
     return return_img;
+}
+
+
+
+void Image::AdjustContrast (byte in1, byte in2, byte out1, byte out2){
+
+	/*
+	 * Realizamos la siguiente transformación lineal:
+	 * T(k) = k' = out1 + [((out2 – out1) / (in2 – in1)) * (k – in1)]
+	 */
+
+	const double M = (double)(out2 - out1)/(double)(in2 - in1);
+
+	for (int k=0; k<size(); k++) {
+
+		byte nvalue = round(out1 + M * (k - in1));
+		set_pixel(k, nvalue);
+	}
 }
 
 

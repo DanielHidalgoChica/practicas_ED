@@ -8,7 +8,6 @@
 #include <image.h>
 
 #include <cassert>
-
 bool Image::operator==(const Image & other){
 
     bool iguales = true;
@@ -137,27 +136,30 @@ void Image::ShuffleRows() {
     for (int r=0; r<rows; r++){
         newr = r*p % rows; // En la fila r metemos la fila newr
         for (int c=0; c<cols;c++)
-            temp.set_pixel(r,c,get_pixel(newr,c)); // Para cada elemento de la fila r,
-                                                                 // introducimos el correspondiente de newr
+            temp.set_pixel(r, c, get_pixel(newr, c)); // Para cada elemento de la fila r,
+                                                                    // introducimos el correspondiente de newr
+
     }
     Copy(temp);
 }
 
 void Image::ShuffleRows_eff() {
     const int p = 9973;
-    int new_pos, prev_pos = 0, counter = rows;
-    // Calculamos dónde colocaremos la fila 0 de nuestra matriz
-    // y dejemos que esa posición sea la i-ésima. Nos preguntamos
-    // después a dónde irá esa fila i-ésima, sea esa la j-ésima.
-    // Continuamos sucesivamente en un preciso total (por la inyectividad
-    // de la función para shufflear propuesta) de rows operaciones, y terminamos el bucle.
-    // (Empezamos con prev_pos = 0 pero podría ser cualquiera en el rango [0-rows-1[ )
-    while (counter > 0) {
-       new_pos = (p*prev_pos) % rows;
-       img[prev_pos] = new_pos;
-       prev_pos = new_pos;
-       --counter;
+    // Copiamos el vector de punteros a filas
+    // para rellenar el nuevo con originales
+
+    byte ** aux_img = new byte * [rows];
+    for (int i = 0; i < rows; i++)
+        aux_img[i] = img[i];
+
+    // Shuffleamos
+    int new_pos;
+    for (int i = 0; i < rows; i++) {
+        new_pos = (p*i) % rows;
+        img[i] = aux_img[new_pos];
     }
+
+    delete [] aux_img;
 }
 
 

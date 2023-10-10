@@ -1,5 +1,5 @@
 //
-// Created by Daniel Hidalgo Chica on 8/10/23.
+// Created by daniel on 10/10/23.
 //
 #include <iostream>
 #include <cstdlib>
@@ -10,36 +10,25 @@ using namespace std;
 
 int main (int argc, char* argv[]) {
     char *fich_orig, *fich_rdo; // Nombres de los ficheros
-    int fila,col; // Fila y columna donde empezar el recorte
-    int filas_sub, cols_sub;
 
-    Image image; // Imagen que recortamos
-    Image recorte; // Recorte que devuelve el programa
+    Image image; // Imagen que barajamos
 
     // Comprobamos validez de la llamada
 
-    if (argc !=7){
+    if (argc !=3){
         cerr << "Error: Numero incorrecto de parametros.\n";
-        cerr << "Uso: crop <fich_orig> <fich_rdo> <fila> <col> <filas_sub> <cols_sub>";
+        cerr << "Uso: barajar <fich_orig> <fich_rdo>";
         exit (1);
     }
 
     // Recuperamos argumentos
     fich_orig = argv[1];
     fich_rdo = argv[2];
-    fila = atoi(argv[3]);
-    col = atoi(argv[4]);
-    filas_sub = atoi(argv[5]);
-    cols_sub = atoi(argv[6]);
 
     // Mostramos argumentos
     cout << endl;
     cout << "Fichero origen: " << fich_orig << endl;
     cout << "Fichero resultado: " << fich_rdo << endl;
-    cout << "Fila donde comienza el recorte:" << fila << endl;
-    cout << "Columna donde comienza el recorte:" << col << endl;
-    cout << "Altura en filas del recorte:" << filas_sub << endl;
-    cout << "Anchura en columnas del recorte:" << cols_sub << endl;
 
     // Leer la imagen del fichero de entrada
     if (!image.Load(fich_orig)){
@@ -54,9 +43,10 @@ int main (int argc, char* argv[]) {
     cout << "   Imagen   = " << image.get_rows()  << " filas x " << image.get_cols() << " columnas " << endl;
 
     // Calculamos el recorte
-    recorte = image.Crop(fila, col, filas_sub, cols_sub);
+    Image barajada(image); // Imagen que devuelve el programa
+    barajada.ShuffleRows_eff();
 
-    if (recorte.Save(fich_rdo))
+    if (barajada.Save(fich_rdo))
         cout  << "La imagen se guardo en " << fich_rdo << endl;
     else{
         cerr << "Error: No pudo guardarse la imagen." << endl;

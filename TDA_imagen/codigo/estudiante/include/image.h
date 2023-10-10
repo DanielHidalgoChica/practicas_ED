@@ -75,6 +75,12 @@ private :
     **/
     int cols;
 
+    /**
+      @brief Puntero inicializado en img[0]
+             para destructor
+    **/
+
+    byte * dtry_ptr;
 
     /**
       @brief Initialize una imagen.

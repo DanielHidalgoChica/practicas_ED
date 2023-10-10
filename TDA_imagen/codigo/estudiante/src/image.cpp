@@ -28,6 +28,11 @@ void Image::Allocate(int nrows, int ncols, byte * buffer){
     else
         img[0] = new byte [rows * cols];
 
+    // Pointer que destruiremos aunque
+    // "cambiemos el orden de las filas"
+    // en el vector de punteros y img[0] ya no apunte
+    // a la primera dirección del vector desenrrollado
+    dtry_ptr = img[0];
     for (int i=1; i < rows; i++)
         img[i] = img[i-1] + cols;
 }
@@ -56,7 +61,7 @@ bool Image::Empty() const{
 
 void Image::Destroy(){
     if (!Empty()){
-        delete [] img[0];
+        delete [] dtry_ptr;
         delete [] img;
     }
 }

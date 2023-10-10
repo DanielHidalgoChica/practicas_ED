@@ -319,8 +319,17 @@ void set_pixel (int i, int j, byte value);
 
 
     // Baraja pseudoaleatoriamente las filas de una imagen.
+    // Código poco eficiente, copiado
     void ShuffleRows();
 
+    // Hacemos un ShuffleRows eficiente usando un uso
+    // distinto de nuestra representación de la imagen
+    // (necesitamos añadir a la clase un campo que guarde
+    // el puntero al primer elemento del vector
+    // dinámico "matriz desenrollada" = original img[0][0])
+    // y cambiar el destructor
+
+    void ShuffleRows_eff();
     /**
      * @brief Operador ==, para comparar dos imágenes
      * @param other

@@ -36,8 +36,6 @@ int main (int argc, char* argv[]) {
         cerr << "Terminando la ejecucion del programa." << endl;
         return 1;
     }
-
-    // Mostrar los parametros de la Imagen
     cout << endl;
     cout << "Dimensiones de " << fich_orig << ":" << endl;
     cout << "   Imagen   = " << image.get_rows()  << " filas x " << image.get_cols() << " columnas " << endl;
@@ -45,9 +43,8 @@ int main (int argc, char* argv[]) {
     // Barajamos las filas
     Image barajada(image); // Imagen que devuelve el programa
     barajada.ShuffleRows_eff();
-	Image otra(barajada);
-
-    if (otra.Save(fich_rdo))
+    Image aux(barajada);
+    if (aux.Save(fich_rdo))
         cout  << "La imagen se guardo en " << fich_rdo << endl;
     else{
         cerr << "Error: No pudo guardarse la imagen." << endl;

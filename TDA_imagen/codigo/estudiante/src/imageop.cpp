@@ -157,7 +157,8 @@ void Image::ShuffleRows_eff() {
 	 */
     const int p = 9973;
 
-    // Copiamos el vector de punteros a filas para rellenar el nuevo con originales
+	// Copiamos el vector de punteros a filas para rellenar el nuevo con originales
+	
     byte ** aux_img = new byte * [rows];
     for (int i = 0; i < rows; i++)
         aux_img[i] = img[i];
@@ -170,7 +171,6 @@ void Image::ShuffleRows_eff() {
     }
 
     delete [] aux_img;
-
 }
 
 

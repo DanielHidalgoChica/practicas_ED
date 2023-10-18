@@ -354,6 +354,8 @@ void set_pixel (int i, int j, byte value);
      * @retval @false si, al menos, hay un pixel distinto o tienen dimensiones distintas.
      */
     bool operator==(const Image & other);
+
+    bool MySave (const char *nombre);
 } ;
 
 

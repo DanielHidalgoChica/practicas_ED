@@ -43,8 +43,7 @@ int main (int argc, char* argv[]) {
     // Barajamos las filas
     Image barajada(image); // Imagen que devuelve el programa
     barajada.ShuffleRows_eff();
-    Image aux(barajada);
-    if (aux.Save(fich_rdo))
+    if (barajada.MySave(fich_rdo))
         cout  << "La imagen se guardo en " << fich_rdo << endl;
     else{
         cerr << "Error: No pudo guardarse la imagen." << endl;

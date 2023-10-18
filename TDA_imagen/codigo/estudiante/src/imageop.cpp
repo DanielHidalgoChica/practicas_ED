@@ -6,7 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <image.h>
-
+#include <fstream>
 #include <cassert>
 bool Image::operator==(const Image & other){
 
@@ -172,6 +172,24 @@ void Image::ShuffleRows_eff() {
 
     delete [] aux_img;
 }
+
+bool Image::MySave (const char *nombre){
+    std::ofstream f(nombre);
+    bool res= true;
+
+    if (f){
+        f << "P5" << std::endl;
+        f << cols << ' ' << rows << std::endl;
+        f << 255 << std::endl;
+        for (int fila = 0; fila < this->rows;++fila )
+            f.write(reinterpret_cast<char const *>(img[fila]), cols);
+        if (!f)
+            res=false;
+    }
+    return res;
+}
+
+
 
 
 

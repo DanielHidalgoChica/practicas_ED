@@ -1,0 +1,3 @@
+/Users/arturoolvrs/Desktop/practicas_ED/Sudoku/cmake-build-debug/CMakeFiles/Sudoku.dir
+/Users/arturoolvrs/Desktop/practicas_ED/Sudoku/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/arturoolvrs/Desktop/practicas_ED/Sudoku/cmake-build-debug/CMakeFiles/rebuild_cache.dir

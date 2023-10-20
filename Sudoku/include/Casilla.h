@@ -3,7 +3,7 @@
  * @brief fichero cabecera del TDA Casilla
  */
 
-#ifndef SUuOKU_CASILLA_H
+#ifndef SUDOKU_CASILLA_H
 #define SUDOKU_CASILLA_H
 
 #include <utility>
@@ -19,6 +19,14 @@ using namespace std;
  */
 class Casilla {
 private:
+/**
+  * @page repConjunto Rep del TDA Casilla
+  *
+  * @section invConjunto Invariante de la representación
+  *
+  * 0 < casilla.coord.first(), casilla.coord.second() <= 9
+  * 0 <= valor <= 9 (Solo valdrá 0 si la casilla no está escrita aún)
+  */
     pair<int, int> coord;
     int valor;
 public:

@@ -29,7 +29,7 @@ using namespace std;
 class Grupo {
 private:
 /**
-  * @page repConjunto Rep del TDA Racional
+  * @page repConjunto Rep del TDA Grupo
   *
   * @section invConjunto Invariante de la representación
   *

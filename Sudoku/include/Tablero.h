@@ -13,7 +13,7 @@
 
 class Tablero {
 private:
-    vector<vector<Casilla>> sudoku;
+    vector<Grupo> sudoku;
 public:
     // set-get
     // Modifica el grupo de la casilla que escribe eliminándola de este

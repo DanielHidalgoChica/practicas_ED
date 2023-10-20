@@ -10,6 +10,15 @@
 #include <vector>
 #include "Casilla.h"
 using namespace std;
+/**
+ * @brief T.D.A Grupo
+ * Una instancia @e grupo del tipo de dato abstracto @c Grupo es un objeto
+ * dotado un conjunto de casillas contiguas y la suma de los valores de éstas.
+ * Representa los conjuntos contiguos de celdas marcados con línea
+ * discontinua en un Sudoku Killer.
+ *
+ * Lo representamos como una estructura con un vector de casillas y un entero como suma
+ */
 
 class Grupo {
 private:

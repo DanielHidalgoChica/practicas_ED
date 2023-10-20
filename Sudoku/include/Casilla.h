@@ -8,7 +8,6 @@
 
 #include <utility>
 #include <vector>
-#include "Grupo.h"
 using namespace std;
 /**
  * @brief T.D.A Casilla
@@ -43,12 +42,12 @@ public:
      * @brief Recupera coordenadas de la casilla
      * @return Par de enteros con las coordenadas
      */
-    pair<int,int> getCoord();
+    pair<int,int> getCoord() const;
     /**
      * @brief Recupera valor de la casilla
      * @return Valor que guarda la casilla
      */
-    int getValor();
+    int getValor() const;
     /**
      * @brief Fija coordenadas de la casilla
      * @param coord Coordenadas que se pasan
@@ -63,11 +62,6 @@ public:
      */
     void setValor(int valor);
 
-    /**
-     * @brief Único grupo al que una casilla pertenece
-     * @return El grupo al que la casilla pertenece
-     */
-    Grupo &getGrupo();
 };
 
 

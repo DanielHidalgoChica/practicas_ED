@@ -1,0 +1,17 @@
+/*! \mainpage Título de la página principal
+
+# Introducción
+
+A RELLENAR POR EL ESTUDIANTE
+
+# Ejecutables
+
+Para consultar qué hace cada ejecutable, consultar su correspondiente archivo `.cpp`:
+- Negativo: negativo.cpp
+- Crop: crop.cpp
+- Zoom: zoom.cpp
+- Icono: icono.cpp
+- Contraste: contraste.cpp
+- Barajar: barajar.cpp
+- Comparar: comparar.cpp
+*/

@@ -37,8 +37,7 @@ target_link_libraries(icono LINK_PUBLIC image)
 endif()
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/contraste.cpp)
-add_executable(contraste ${BASE_FOLDER}/src/contraste.cpp
-        estudiante/src/contraste.cpp)
+add_executable(contraste ${BASE_FOLDER}/src/contraste.cpp)
 target_link_libraries(contraste LINK_PUBLIC image)
 endif()
 
@@ -48,8 +47,18 @@ target_link_libraries(barajar LINK_PUBLIC image)
 endif()
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/comparar.cpp)
-    add_executable(comparar ${BASE_FOLDER}/src/comparar.cpp)
-    target_link_libraries(comparar LINK_PUBLIC image)
+add_executable(comparar ${BASE_FOLDER}/src/comparar.cpp)
+target_link_libraries(comparar LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/barajar_medida_filcols.cpp)
+    add_executable(barajar_medida_filcols ${BASE_FOLDER}/src/barajar_medida_filcols.cpp)
+    target_link_libraries(barajar_medida_filcols LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/barajar_medida_nreps.cpp)
+    add_executable(barajar_medida_nreps ${BASE_FOLDER}/src/barajar_medida_nreps.cpp)
+    target_link_libraries(barajar_medida_nreps LINK_PUBLIC image)
 endif()
 
 # check if Doxygen is installed

@@ -41,8 +41,9 @@ int main (int argc, char* argv[]) {
     cout << "   Imagen   = " << image.get_rows()  << " filas x " << image.get_cols() << " columnas " << endl;
 
     // Barajamos las filas
-    Image barajada(image); // Imagen que devuelve el programa
+    Image barajada(image); // Copia de image
     barajada.ShuffleRows_eff();
+
     if (barajada.MySave(fich_rdo))
         cout  << "La imagen se guardo en " << fich_rdo << endl;
     else{

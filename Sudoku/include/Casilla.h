@@ -20,11 +20,11 @@ using namespace std;
 class Casilla {
 private:
 /**
-  * @page repConjunto Rep del TDA Casilla
+  * @page repCasilla Rep del TDA Casilla
   *
   * @section invConjunto Invariante de la representación
   *
-  * 0 < casilla.coord.first(), casilla.coord.second() <= 9
+  * 0 < casilla.coord.first(), casilla.coord.second() <= 9 ||
   * 0 <= valor <= 9 (Solo valdrá 0 si la casilla no está escrita aún)
   */
     pair<int, int> coord;

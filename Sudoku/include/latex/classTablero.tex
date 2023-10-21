@@ -1,0 +1,111 @@
+\hypertarget{classTablero}{}\doxysection{Tablero Class Reference}
+\label{classTablero}\index{Tablero@{Tablero}}
+
+
+T.\+D.\+A \mbox{\hyperlink{classTablero}{Tablero}} Una instancia {\itshape tab} del tipo de dato abstracto {\ttfamily \mbox{\hyperlink{classTablero}{Tablero}}} es una matriz 9x9 con casillas que identifican las distintas estructuras, es decir, a las filas, columnas y cubo. Esto es de vital importancia, pues tomaremos en muchas ocasiones el nombre estructura para identificar estos tres terminos, ya que en ninguno de ellos se podran repetir casillas con mismo {\ttfamily valor}.  
+
+
+
+
+{\ttfamily \#include $<$Tablero.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classGrupo}{Grupo}} \& \mbox{\hyperlink{classTablero_abbe54b010dd36cf69dc01185a00618b3}{get\+\_\+grupo}} (int pos) const
+\begin{DoxyCompactList}\small\item\em Devolvera el grupo correspondiente a la posicion de este en el vector {\ttfamily sudoku}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTablero_a42bc19abfc635802ed9d3cb7dcc5d7d3}{set\+\_\+casilla}} (const \mbox{\hyperlink{classCasilla}{Casilla}} \&casilla\+\_\+escrita, bool \mbox{\hyperlink{classTablero_a602a384d1860c0b75ad6c143d4a81e04}{limpiar}}=true)
+\begin{DoxyCompactList}\small\item\em Modifica el grupo de la casilla que escribe eliminandola de este, con el metodo quitar\+\_\+casilla (\mbox{\hyperlink{classCasilla}{Casilla}} cas) de la clase \mbox{\hyperlink{classGrupo}{Grupo}} y modifica el sudoku colocando el valor a la casilla correspondiente. Ademas llamara a limpiar (por defecto) para quitar las combinaciones posibles de otros grupos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTablero_a96a93a35fe95576658f6536bd48b6c57}{escribir\+\_\+inmediatos}} ()
+\begin{DoxyCompactList}\small\item\em Escribe las casillas inmediatas obtenidas\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTablero_ab0d41d7d1ab19e4824ab68d50fbb4e68}\label{classTablero_ab0d41d7d1ab19e4824ab68d50fbb4e68}} 
+void \mbox{\hyperlink{classTablero_ab0d41d7d1ab19e4824ab68d50fbb4e68}{calcular\+\_\+todas\+\_\+combinaciones}} ()
+\begin{DoxyCompactList}\small\item\em Rellena todas las combinaciones posibles (cada una con todas sus posiciones). LLama a calcular combinaciones de cada grupo de la clase \mbox{\hyperlink{classGrupo}{Grupo}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTablero_a602a384d1860c0b75ad6c143d4a81e04}{limpiar}} (const \mbox{\hyperlink{classCasilla}{Casilla}} \&cas)
+\begin{DoxyCompactList}\small\item\em Actualiza el tablero. LLama a\+: \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTablero_abdb3e9a63b9a68ddd62680a5840847bf}\label{classTablero_abdb3e9a63b9a68ddd62680a5840847bf}} 
+void \mbox{\hyperlink{classTablero_abdb3e9a63b9a68ddd62680a5840847bf}{escribir\+\_\+determinados}} ()
+\begin{DoxyCompactList}\small\item\em Itera sobre cada grupo llamando a escribe\+\_\+determinados() \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+T.\+D.\+A \mbox{\hyperlink{classTablero}{Tablero}} Una instancia {\itshape tab} del tipo de dato abstracto {\ttfamily \mbox{\hyperlink{classTablero}{Tablero}}} es una matriz 9x9 con casillas que identifican las distintas estructuras, es decir, a las filas, columnas y cubo. Esto es de vital importancia, pues tomaremos en muchas ocasiones el nombre estructura para identificar estos tres terminos, ya que en ninguno de ellos se podran repetir casillas con mismo {\ttfamily valor}. 
+
+Lo representaremos como un vector de grupos, que a su vez identifica todas las casillas que tiene el \mbox{\hyperlink{classTablero}{Tablero}} del Sudoku Killer 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTablero_a96a93a35fe95576658f6536bd48b6c57}\label{classTablero_a96a93a35fe95576658f6536bd48b6c57}} 
+\index{Tablero@{Tablero}!escribir\_inmediatos@{escribir\_inmediatos}}
+\index{escribir\_inmediatos@{escribir\_inmediatos}!Tablero@{Tablero}}
+\doxysubsubsection{\texorpdfstring{escribir\_inmediatos()}{escribir\_inmediatos()}}
+{\footnotesize\ttfamily void Tablero\+::escribir\+\_\+inmediatos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Escribe las casillas inmediatas obtenidas\+: 
+
+
+\begin{DoxyItemize}
+\item Usando el método del 45 para el sudoku killer (y derivados con estructuras mayores)
+\item Rellenando grupos con una única casilla 
+\end{DoxyItemize}\mbox{\Hypertarget{classTablero_abbe54b010dd36cf69dc01185a00618b3}\label{classTablero_abbe54b010dd36cf69dc01185a00618b3}} 
+\index{Tablero@{Tablero}!get\_grupo@{get\_grupo}}
+\index{get\_grupo@{get\_grupo}!Tablero@{Tablero}}
+\doxysubsubsection{\texorpdfstring{get\_grupo()}{get\_grupo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGrupo}{Grupo}}\& Tablero\+::get\+\_\+grupo (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption}) const}
+
+
+
+Devolvera el grupo correspondiente a la posicion de este en el vector {\ttfamily sudoku}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Posición del grupo que se quiere tener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Objeto de la clase \mbox{\hyperlink{classGrupo}{Grupo}}, que ocupa dicha {\ttfamily pos} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTablero_a602a384d1860c0b75ad6c143d4a81e04}\label{classTablero_a602a384d1860c0b75ad6c143d4a81e04}} 
+\index{Tablero@{Tablero}!limpiar@{limpiar}}
+\index{limpiar@{limpiar}!Tablero@{Tablero}}
+\doxysubsubsection{\texorpdfstring{limpiar()}{limpiar()}}
+{\footnotesize\ttfamily void Tablero\+::limpiar (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCasilla}{Casilla}} \&}]{cas }\end{DoxyParamCaption})}
+
+
+
+Actualiza el tablero. LLama a\+: 
+
+
+\begin{DoxyItemize}
+\item Limpiar básico (cas)
+\item Limpiar unic\+\_\+comb (cas)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cas} & \mbox{\hyperlink{classCasilla}{Casilla}} cuyo valor se limpiará \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTablero_a42bc19abfc635802ed9d3cb7dcc5d7d3}\label{classTablero_a42bc19abfc635802ed9d3cb7dcc5d7d3}} 
+\index{Tablero@{Tablero}!set\_casilla@{set\_casilla}}
+\index{set\_casilla@{set\_casilla}!Tablero@{Tablero}}
+\doxysubsubsection{\texorpdfstring{set\_casilla()}{set\_casilla()}}
+{\footnotesize\ttfamily void Tablero\+::set\+\_\+casilla (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCasilla}{Casilla}} \&}]{casilla\+\_\+escrita,  }\item[{bool}]{limpiar = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Modifica el grupo de la casilla que escribe eliminandola de este, con el metodo quitar\+\_\+casilla (\mbox{\hyperlink{classCasilla}{Casilla}} cas) de la clase \mbox{\hyperlink{classGrupo}{Grupo}} y modifica el sudoku colocando el valor a la casilla correspondiente. Ademas llamara a limpiar (por defecto) para quitar las combinaciones posibles de otros grupos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em casilla\+\_\+escrita} & \mbox{\hyperlink{classCasilla}{Casilla}} cuyo valor se escribe \\
+\hline
+{\em limpiar} & Por defecto limpia, en el caso que no queramos pasar un booleano igual a false \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Tablero_8h}{Tablero.\+h}}\end{DoxyCompactItemize}

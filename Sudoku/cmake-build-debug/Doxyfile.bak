@@ -1,6 +1,0 @@
-PROJECT_NAME           = "Práctica 1. Imágenes"
-OUTPUT_DIRECTORY       = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/cmake-build-debug/doc_doxygen/
-INPUT                  = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/estudiante/include /home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/estudiante/src /home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/estudiante/doc
-GENERATE_LATEX         = NO
-IMAGE_PATH             = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/TDA_imagen/codigo/estudiante/doc
-EXTRACT_PRIVATE        = NO

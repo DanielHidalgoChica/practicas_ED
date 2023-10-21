@@ -29,11 +29,11 @@ using namespace std;
 class Grupo {
 private:
 /**
-  * @page repConjunto Rep del TDA Grupo
+  * @page repGrupo Rep del TDA Grupo
   *
   * @section invConjunto Invariante de la representación
   *
-  * El invariante de representación es grupo[i] in {Casillas Válidas de Sudoku} ^ 0 < suma <= 81
+  * El invariante de representación es grupo[i] in {Casillas Válidas de Sudoku} && 0 < suma <= 81
   *
   */
     int suma;

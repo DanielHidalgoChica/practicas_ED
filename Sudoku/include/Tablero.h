@@ -24,11 +24,13 @@
 class Tablero {
 private:
   /**
-  * @page repConjunto Rep del TDA Tablero
+  * @page repTablero Rep del TDA Tablero
   *
   * @section invConjunto Invariante de la representación
   *
-  * Todas las casillas deben ser válidas. Num_Casillas = 81
+  * Todas las casillas deben ser válidas && Num_Casillas = 81
+   * && todos los grupos del vector deben cumplir con su
+   * respectivo invariante de representación
   */
     vector<Grupo> grupos;
     vector<vector<Casilla>> sudoku;

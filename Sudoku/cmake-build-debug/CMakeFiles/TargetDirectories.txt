@@ -1,0 +1,4 @@
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku/cmake-build-debug/CMakeFiles/Sudoku.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku/cmake-build-debug/CMakeFiles/doc_doxygen.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -24,18 +24,13 @@ using namespace std;
  * tantas filas como elementos tenga el grupo, será una posible ordenación de los elementos del grupo
  * (fijada cada casilla para cada una de las filas)
  *
+ * @invariant El invariante de representación es grupo[i] in {Casillas Válidas de Sudoku}
+ * @invariant 0 < suma <= 81
+ *
  */
 
 class Grupo {
 private:
-/**
-  * @page repGrupo Rep del TDA Grupo
-  *
-  * @section invConjunto Invariante de la representación
-  *
-  * El invariante de representación es grupo[i] in {Casillas Válidas de Sudoku} && 0 < suma <= 81
-  *
-  */
     int suma;
     vector<Casilla> grupo;
     vector<vector<vector<int>>> combinaciones;

@@ -19,22 +19,17 @@
  *
  * Lo representaremos como un vector de grupos, que a su vez identifica todas las
  * casillas que tiene el Tablero del Sudoku Killer
+ * @invariant Todas las casillas deben ser válidas
+ * @invariant Num_Casillas = 81
+ * @invariant Todos los grupos del vector deben cumplir con su invariante de representación
  */
 
 class Tablero {
 private:
-  /**
-  * @page repTablero Rep del TDA Tablero
-  *
-  * @section invConjunto Invariante de la representación
-  *
-  * Todas las casillas deben ser válidas && Num_Casillas = 81
-   * && todos los grupos del vector deben cumplir con su
-   * respectivo invariante de representación
-  */
     vector<Grupo> grupos;
     vector<vector<Casilla>> sudoku;
 public:
+    Tablero();
     /**
      * @brief Devolvera el grupo correspondiente a la posicion
      * de este en el vector @c sudoku
@@ -83,7 +78,7 @@ private:
     /**
      * @brief Devuelve el grupo al que esta casilla pertenece
      * @param cas Casilla cuyo grupo se devuelve
-     * @return referencia al grupo al que @a @cas pertenece
+     * @return referencia al grupo al que @a cas pertenece
      */
     Grupo &getGrupo(const Casilla &cas) const;
     /**
@@ -127,7 +122,7 @@ private:
     * del grupo.
     * En el caso de una sola casilla fuera:
     *      casilla = suma_todos_grupos_de_la_estructura - 45
-                                                          * En el caso de size-1 casillas fuera:
+    * En el caso de size-1 casillas fuera:
     *      casilla = 45 - suma_grupos_enteros_dentro
     *
     * Nótese que el método es fácilmente aplicable al caso en el que tengamos una estructura

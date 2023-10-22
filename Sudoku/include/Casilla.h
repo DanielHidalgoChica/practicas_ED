@@ -16,17 +16,11 @@ using namespace std;
  * en un tablero 9x9 de Sudoku, y el valor que identifica al numero que guarda
  * esa casilla
  * Lo representaremos como una estructura de un objeto de tipo pair<int> y un entero
+ * @invariant 0 < casilla.coord.first(), casilla.coord.second() <= 9
+ * @invariant 0 <= valor <= 9 (Solo valdrá 0 si la casilla no está escrita aún)
  */
 class Casilla {
 private:
-/**
-  * @page repCasilla Rep del TDA Casilla
-  *
-  * @section invConjunto Invariante de la representación
-  *
-  * 0 < casilla.coord.first(), casilla.coord.second() <= 9 ||
-  * 0 <= valor <= 9 (Solo valdrá 0 si la casilla no está escrita aún)
-  */
     pair<int, int> coord;
     int valor;
 public:

@@ -1,0 +1,8 @@
+PROJECT_NAME           = "Reto 2. Sudoku Killer"
+OUTPUT_DIRECTORY       = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku/cmake-build-debug/doc_doxygen/
+INPUT                  = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku//include /home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku//src /home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku//doc
+GENERATE_LATEX         = YES
+IMAGE_PATH             = /home/daniel/Daniel/University/DGIIM/II/ED/practicas/Sudoku//doc
+EXTRACT_PRIVATE        = NO
+OUTPUT_LANGUAGE        = Spanish
+USE_MATHJAX            = YES

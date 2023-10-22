@@ -9,6 +9,7 @@
 #include <utility>
 #include <vector>
 using namespace std;
+
 /**
  * @brief T.D.A Casilla
  * Una instancia @e cas del tipo de dato abstracto @c Casilla es un objeto
@@ -21,7 +22,17 @@ using namespace std;
  */
 class Casilla {
 private:
+    /**
+     * @brief Un dato pair que indica la posición en el tablero
+     * mediante la fila y la columna en este orden
+     * @pre 0 < casilla.coord.first(), casilla.coord.second() <= 9
+     */
     pair<int, int> coord;
+
+    /**
+     * @brief Numero de la casilla
+     * @pre 1 <= @c valor <= 9 (Solo puede tener valor si no esta escrita aún)
+     */
     int valor;
 public:
     /**

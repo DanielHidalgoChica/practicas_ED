@@ -29,7 +29,18 @@ private:
     vector<Grupo> grupos;
     vector<vector<Casilla>> sudoku;
 public:
+    /**
+     * @brief Constructor sin argumentos
+     */
     Tablero();
+
+    /**
+     * @brief Constructor con vector de grupos y vector de vector de casillas
+     * @param grupos Vector de grupos del tablero
+     * @param sdk Tabla de casillas del tablero
+     */
+    Tablero(const vector<Grupo> &grupos, const vector<vector<Casilla>& sdk);
+
     /**
      * @brief Devolvera el grupo correspondiente a la posicion
      * de este en el vector @c sudoku

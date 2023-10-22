@@ -1,7 +1,6 @@
 /**
- * @file Tablero.h
- * @brief
- * @author Arturo
+ * @file Grupo.h
+ * @brief fichero cabecera del TDA Grupo
  */
 
 #ifndef SUDOKU_GRUPO_H
@@ -31,8 +30,28 @@ using namespace std;
 
 class Grupo {
 private:
+    /**
+     * @brief Suma de los valores de las casillas del grupo
+     * @pre 0 < @c suma <= 81
+     */
     int suma;
+
+    /**
+     * @brief Array de casillas que tiene el grupo
+     * @pre Cada casilla que contenga el vector debe estar en el grupo, es decir,
+     * cada valor de la casilla es un sumando de @c suma
+     */
     vector<Casilla> grupo;
+
+    /**
+     * @brief Vector de matrices, donde cada matriz representa una combinación
+     * y dentro de esa matriz cada columna representa distintas posiciones precisas de
+     * dicha combinación, es decir, la combinación 154, tendrá en sus columnas las distintas
+     * posciones a las que llamamos 154, 145, 415, 451, 514 y 541. Recalquemos
+     * que cada índice del vector @c grupo fija una fila de esa matriz.
+     * @pre combinaciones[i][j].size() == grupo.size() para todo i, j
+     *          donde i es la matriz y j es la columna
+     */
     vector<vector<vector<int>>> combinaciones;
 public:
     /**
@@ -45,7 +64,7 @@ public:
      * @brief Recupera la suma asociada al grupo
      * @return La suma del grupo
      */
-     int getSuma() const;
+    int getSuma() const;
 
     /**
      * @brief Recupera las combinaciones posibles del grupo (basadas en el instante del tablero)
@@ -114,7 +133,7 @@ public:
      * con cada una de sus posiciones posibles
      * @post El grupo queda inicializado. Se usa solo su suma
      */
-     void rellena_comb_y_pos();
+    void rellena_comb_y_pos();
 
     /**
     * @brief Limpia todas las combinaciones que contengan el dígito de la casilla @a cas
@@ -209,7 +228,7 @@ private:
      * Procederá simulando iterando sobre cada una de las otras casillas del grupo y comprobando si para cada una de éstas
      * existe al menos una de las otras casillas del grupo (no contando sobre la que nos estamos planteando) tal que
      * ésta esté en la misma fila y a una sola columna de distancia, o en la misma columna y a una sola fila de distancia
-     * @param cas
+     * @param cas casilla que se comprobara si esta en el borde, para poder recortar el grupo
      * @return true si la casilla está en el grupo y está en el borde
      */
     bool esta_en_el_borde(const Casilla &cas);

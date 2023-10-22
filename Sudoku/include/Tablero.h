@@ -1,6 +1,10 @@
 /**
  * @file Tablero.h
  * @brief Fichero cabecera del TDA Tablero
+ *
+ * @author Joaquín Avilés de la Fuente
+ * @author Daniel Hidalgo Chica
+ * @author Arturo Olivares Martos
  */
 
 #ifndef SUDOKU_TABLERO_H
@@ -30,7 +34,17 @@
 
 class Tablero {
 private:
+
+	/**
+	 * @brief Vector de los grupos que quedan en el sudoku.
+	 *
+	 * Inicialmente, abarca el tablero completo.
+	 */
     vector<Grupo> grupos;
+
+	/**
+	 * @brief Matriz de Casillas que representan el tablero del sudoku en sí.
+	 */
     vector<vector<Casilla>> sudoku;
 public:
     /**
@@ -195,7 +209,7 @@ private:
 
     /**
      * @brief Dada la última casilla escrita en el tablero, limpia todas las combinaciones y
-     * posiciones de cada estructura que contenga a @cas
+     * posiciones de cada estructura que contenga a @a cas
      *
      * LLama a Tablero::limp_{estructura}(Casilla cas)
      *

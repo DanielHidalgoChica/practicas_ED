@@ -1,6 +1,10 @@
 /**
  * @file Grupo.h
  * @brief Fichero cabecera del TDA Grupo
+ *
+ * @author Joaquín Avilés de la Fuente
+ * @author Daniel Hidalgo Chica
+ * @author Arturo Olivares Martos
  */
 
 #ifndef SUDOKU_GRUPO_H
@@ -150,7 +154,7 @@ public:
 
     /**
     * @brief Limpia todas las posiciones que tengan al dígito
-    * de @cas en una casilla en la fila en la que se encuentra @cas (reglas del Sudoku)
+    * de @a cas en una casilla en la fila en la que se encuentra @a cas (reglas del Sudoku)
     * @pre InFila() == false
     * @param cas Última casilla escrita
     * @post El grupo elimina las posiciones precisadas
@@ -167,7 +171,7 @@ public:
 
     /**
     * @brief Limpia todas las posiciones que tengan al dígito
-    * de @cas en una casilla en la col en la que se encuentra @cas (reglas del Sudoku)
+    * de @a cas en una casilla en la col en la que se encuentra @a cas (reglas del Sudoku)
     * @pre InCol() == false
     * @param cas Última casilla escrita
     * @post El grupo elimina las posiciones precisadas
@@ -184,7 +188,7 @@ public:
 
     /**
     * @brief Limpia todas las posiciones que tengan al dígito
-    * de @cas en una casilla en el cubo en la que se encuentra @cas (reglas del Sudoku)
+    * de @a cas en una casilla en el cubo en la que se encuentra @a cas (reglas del Sudoku)
     * @pre InCubo() == false
     * @param cas Última casilla escrita
     * @post El grupo elimina las posiciones precisadas
@@ -217,14 +221,14 @@ private:
 
     /**
      * @brief Devuelve cuántas casillas se quedan fuera de "fila"
-     * @param cubo La esquina superior izquierda de fila
+     * @param fila Una casilla de la fila
      * @return Número de casillas que se quedan fuera
      */
     int CuantasFuera_fila(const Casilla& fila) const;
 
     /**
      * @brief Devuelve cuántas casillas se quedan fuera de "col"
-     * @param cubo La esquina superior izquierda de col
+     * @param col Una casilla de la columna
      * @return Número de casillas que se quedan fuera
      */
     int CuantasFuera_col(const Casilla& col) const;

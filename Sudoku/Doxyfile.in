@@ -6,3 +6,4 @@ IMAGE_PATH             = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc
 EXTRACT_PRIVATE        = YES
 OUTPUT_LANGUAGE        = Spanish
 USE_MATHJAX            = YES
+STRIP_FROM_PATH        = @CMAKE_SOURCE_DIR@/

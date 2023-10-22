@@ -1,6 +1,10 @@
 /**
  * @file Casilla.h
  * @brief Fichero cabecera del TDA Casilla
+ *
+ * @author Joaquín Avilés de la Fuente
+ * @author Daniel Hidalgo Chica
+ * @author Arturo Olivares Martos
  */
 
 #ifndef SUDOKU_CASILLA_H

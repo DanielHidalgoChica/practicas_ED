@@ -1,6 +1,6 @@
 /**
  * @file Casilla.h
- * @brief fichero cabecera del TDA Casilla
+ * @brief Fichero cabecera del TDA Casilla
  */
 
 #ifndef SUDOKU_CASILLA_H
@@ -11,10 +11,12 @@
 using namespace std;
 
 /**
- * @brief T.D.A Casilla
+ * @brief TDA Casilla
+ * Representa una única posición de sudoku que puede contener un único valor numérico
+ *
  * Una instancia @e cas del tipo de dato abstracto @c Casilla es un objeto
  * dotado de un par de enteros positivos que representan sus coordenadas
- * en un tablero 9x9 de Sudoku, y el valor que identifica al numero que guarda
+ * en un tablero 9x9 de Sudoku, y el valor que identifica al número que guarda
  * esa casilla
  * Lo representaremos como una estructura de un objeto de tipo pair<int> y un entero
  * @invariant 0 < casilla.coord.first(), casilla.coord.second() <= 9
@@ -30,14 +32,14 @@ private:
     pair<int, int> coord;
 
     /**
-     * @brief Numero de la casilla
+     * @brief Número de la casilla
      * @pre 1 <= @c valor <= 9 (Solo puede tener valor si no esta escrita aún)
      */
     int valor;
 public:
     /**
      * @brief Constructor de la clase con unas coordenadas y con un valor preciso
-     * @param coord Coordenadas de la casilla en el tabero
+     * @param coord Coordenadas de la casilla en el tablero
      * @param valor Valor que guarda la casilla
      * @return Crea la casilla precisada
      * @pre @a 0 <= coord.first(), coord.second() < 9

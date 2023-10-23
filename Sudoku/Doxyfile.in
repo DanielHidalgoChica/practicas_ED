@@ -1,8 +1,8 @@
 PROJECT_NAME           = "Reto 2. Sudoku Killer"
-OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@/doc_doxygen/
-INPUT                  = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/include @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/src @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc
+OUTPUT_DIRECTORY       = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc_doxygen/
+INPUT                  = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/include @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/src @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc_source
 GENERATE_LATEX         = YES
-IMAGE_PATH             = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc
+IMAGE_PATH             = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc_source
 EXTRACT_PRIVATE        = YES
 OUTPUT_LANGUAGE        = Spanish
 USE_MATHJAX            = YES

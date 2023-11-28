@@ -1,0 +1,17 @@
+/*! \mainpage DOCUMENTACIÓN TDA IMAGEN
+
+# Introducción
+
+TDA Imagen para trabajar con imágenes pgm y hacer diferentes operaciones con ellas. Entre ellas están
+la carga y guardado, la comparación, el recorte, el zoom, la obtención del negativo y el barajado.
+# Ejecutables
+
+Para consultar qué hace cada ejecutable, consultar su correspondiente archivo `.cpp`:
+- Negativo: negativo.cpp
+- Crop: crop.cpp
+- Zoom: zoom.cpp
+- Icono: icono.cpp
+- Contraste: contraste.cpp
+- Barajar: barajar.cpp
+- Comparar: comparar.cpp
+*/

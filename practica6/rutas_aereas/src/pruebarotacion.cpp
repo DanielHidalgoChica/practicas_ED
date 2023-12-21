@@ -1,3 +1,9 @@
+/**
+ * @file pruebarotacion.cpp
+ *
+ * @author Arturo Olivares Martos
+ * @author Daniel Hidalgo Chica
+ */
 #include "imagen.h"
 #include <iostream>
 #include <cstdlib>
@@ -76,18 +82,17 @@ Imagen Rota(const Imagen & Io,double angulo){
 
 
 int main(int argc, char * argv[]){
-  if (argc!=4){
-    cout<<"Los parametros son :"<<endl;
-    cout<<"1.-La imagen de entrada"<<endl;
-    cout<<"2.-El angulo de rotación"<<endl;
-    cout<<"3.-El nombre de la imagen de salida"<<endl;
-    return 0;
-  }
-  Imagen I;
-  I.LeerImagen(argv[1]);
-  double angulo=atof(argv[2]);
-  angulo = angulo*(M_PI)/180;
-  Imagen Iout=Rota(I,angulo);
-  Iout.EscribirImagen(argv[3]);
-  
+	if (argc!=4){
+		cout<<"Los parametros son :"<<endl;
+		cout<<"1 - La imagen de entrada"<<endl;
+		cout<<"2 - El angulo de rotación"<<endl;
+		cout<<"3 - El nombre de la imagen de salida"<<endl;
+		return 0;
+	}
+	Imagen I;
+	I.LeerImagen(argv[1]);
+	double angulo=atof(argv[2]);
+	angulo = angulo*(M_PI)/180;
+	Imagen Iout=Rota(I,angulo);
+	Iout.EscribirImagen(argv[3]);
 }  

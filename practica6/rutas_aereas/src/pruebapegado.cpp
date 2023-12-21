@@ -1,3 +1,11 @@
+/**
+ * @file pruebapegado.cpp
+ *
+ *
+ * @author Arturo Olivares Martos
+ * @author Daniel Hidalgo Chica
+ */
+
 #include "imagen.h"
 #include <iostream>
 #include <cstdlib>

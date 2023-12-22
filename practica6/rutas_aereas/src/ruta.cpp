@@ -45,6 +45,8 @@ void Ruta::eliminarPunto(const Punto &p) {
 
 ostream & operator<<(ostream & os, const Ruta & r) {
 	os << r.codigo << " ";
+	os << r.getNumPuntos() << " ";
+
 	list<Punto>::const_iterator it;
 	for (it = r.puntos.begin(); it != r.puntos.end(); ++it) {
 		os << *it << " ";
@@ -54,13 +56,19 @@ ostream & operator<<(ostream & os, const Ruta & r) {
 
 istream & operator>>(istream & is, Ruta & r) {
 	string codigo;
+	int numPuntos;
 	list<Punto> puntos;
+
 	is >> codigo;
 	r.setCodigo(codigo);
+
+	is >> numPuntos;
 	Punto p;
-	while (is >> p) {
+	for (int i = 0; i < numPuntos; ++i) {
+		is >> p;
 		puntos.push_back(p);
 	}
+
 	r.setPuntos(puntos);
 	return is;
 }

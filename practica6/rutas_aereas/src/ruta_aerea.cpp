@@ -64,25 +64,32 @@ int main (int argc, char* argv[]) {
         return -1;
     }
 
-   ifstream file(argv[1]);
-   Paises paises;
-   if (file)
-    file >> paises;
-   else {
-       cout << "Error de apertura del fichero" << endl;
-       return -1;
-   }
+	ifstream file;
+	file.open(argv[1]);
+	Paises paises; // Leemos los paises
+	if (file)
+		file >> paises;
+	else {
+		cout << "Error de apertura del fichero" << argv[1] << endl;
+		return -1;
+	}
+	file.close();
 
-   Imagen mapa;
-   mapa.LeerImagen(argv[2]);
+	Imagen mapa;
+	mapa.LeerImagen(argv[2]);
 
-   Imagen avion;
-   avion.LeerImagen(argv[5], argv[6]); // Leemos con la máscara
+	Imagen avion;
+	avion.LeerImagen(argv[5], argv[6]); // Leemos con la máscara
 
-    AlmacenRutas Ar;
-    file.close();
+    AlmacenRutas Ar; // Leemos el almacen de rutas
     file.open (argv[4]);
-    file>>Ar;
+	if (file)
+		file >> Ar;
+	else {
+		cout << "Error de apertura del fichero " << argv[4] << endl;
+		return -1;
+	}
+
     cout<<"Las rutas: "<<endl<<Ar; // Muestra todas las rutas disponibles
     cout<<"Introduzca el codigo de una ruta"<<endl;
     string id_ruta; // Ruta

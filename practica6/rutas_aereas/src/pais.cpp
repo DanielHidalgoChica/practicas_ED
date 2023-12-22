@@ -44,16 +44,21 @@ bool Pais::operator<(const Pais &p) const {
 }
 
 ostream & operator<<(ostream & os, const Pais & p) {
-	os << p.getPunto() << " " << p.getNombre() << " " << p.getBandera();
+	os  << p.getPunto().getLatitud() << "\t"
+		<< p.getPunto().getLongitud() << "\t"
+		<< p.getNombre() << "\t"
+		<< p.getBandera();
+
 	return os;
 }
 
 istream & operator>>(istream & is, Pais & p) {
 	string nombre, bandera;
-	Punto punto;
-	is >> punto >> nombre >> bandera;
+	double latitud, longitud;
+	is >> latitud >> longitud >> nombre >> bandera;
 	p.setNombre(nombre);
 	p.setBandera(bandera);
-	p.setPunto(punto);
+	p.setPunto(Punto(latitud, longitud));
+
 	return is;
 }

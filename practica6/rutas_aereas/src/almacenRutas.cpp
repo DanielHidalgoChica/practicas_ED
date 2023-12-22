@@ -10,6 +10,8 @@
 #include "almacenRutas.h"
 using namespace std;
 
+#define MAGIC_CAD "Rutas"
+
 AlmacenRutas::AlmacenRutas(const map<string, Ruta> &rutas) {
 	this->rutas = rutas;
 }
@@ -35,19 +37,29 @@ int AlmacenRutas::getNumRutas() const {
 }
 
 ostream & operator<<(ostream & os, const AlmacenRutas & ar) {
-	map<string, Ruta>::const_iterator it;
-	for (it = ar.rutas.begin(); it != ar.rutas.end(); ++it) {
-		os << it->second << endl;
+
+	os << MAGIC_CAD << endl;
+
+	AlmacenRutas::const_iterator it;
+	for (it = ar.begin(); it != ar.end(); ++it) {
+		os << *it << endl;
 	}
 	return os;
 }
 
 istream & operator>>(istream & is, AlmacenRutas & ar) {
-	map<string, Ruta> rutas;
 	Ruta ruta;
-	while (is >> ruta) {
-		rutas.insert(pair<string, Ruta>(ruta.getCodigo(), ruta));
+
+	string cadena;
+	is >> cadena;
+
+	if (cadena != MAGIC_CAD) {
+		exit (-1);
 	}
-	ar = AlmacenRutas(rutas);
+
+	while (is >> ruta) {
+		ar.insertarRuta(ruta);
+	}
+
 	return is;
 }

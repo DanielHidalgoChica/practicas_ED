@@ -9,6 +9,8 @@
 
 #include "paises.h"
 
+const string CAD_MAGS[4] = {"# Latitud", "Longitud", "Pais", "Bandera"};
+
 Paises::Paises(const set<Pais> &paises) {
 	datos = paises;
 }
@@ -45,9 +47,15 @@ Paises::iterator Paises::find(const Punto &punto) const {
 
 
 ostream &operator<<(ostream &os, const Paises &paises) {
+
+	for (int i = 0; i < 4; i++) {
+		os << CAD_MAGS[i] << "\t";
+	}
+	os << endl;
+
 	Paises::iterator it;
 	for (it = paises.begin(); it != paises.end(); ++it) {
-		os << *it << "\t";
+		os << *it << endl;
 	}
 	return os;
 }

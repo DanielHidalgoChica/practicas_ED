@@ -240,6 +240,26 @@ public:
 		 friend class AlmacenRutas;
      };
 
+	/**
+	 * @brief Devuelve un iterador constante al principio del mapa
+	 * @return  Iterador constante al principio del mapa
+	 */
+	 const_iterator begin() const {
+		 const_iterator i;
+		 i.it = rutas.begin();
+		 return i;
+	 }
+
+	 /**
+	  * @brief Devuelve un iterador constante al final del mapa
+	  * @return  Iterador constante al final del mapa
+	  */
+	 const_iterator end() const {
+		 const_iterator i;
+		 i.it = rutas.end();
+		 return i;
+	 }
+
 	friend ostream & operator<<(ostream & os, const AlmacenRutas& almacen);
 	friend istream & operator>>(istream & is, AlmacenRutas& almacen);
 };
@@ -247,18 +267,18 @@ public:
 /**
  * @brief Sobrecarga del operador de salida para la clase AlmacenRutas
  * @param os  Stream de salida
- * @param almacen  Almacén de rutas
+ * @param ar  Almacén de rutas
  * @return  Stream de salida
  */
-ostream & operator<<(ostream& os, const AlmacenRutas& almacen);
+ostream & operator<<(ostream& os, const AlmacenRutas& ar);
 
 /**
  * @brief Sobrecarga del operador de entrada
  * @param is  Stream de entrada
- * @param almacen  Almacén de rutas
+ * @param ar  Almacén de rutas
  * @return  Stream de entrada
  */
-istream & operator>>(istream& is, AlmacenRutas& almacen);
+istream & operator>>(istream& is, AlmacenRutas& ar);
 
 
 #endif //PRACTICAFINAL_ALMACENRUTAS_H

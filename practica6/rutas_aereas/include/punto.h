@@ -27,7 +27,6 @@ private:
 	 * @brief Latitud del punto
 	 */
 	double latitud;
-	// TODO:Cambiar a double HECHOO
 
 	/**
 	 * @brief Longitud del punto
@@ -82,8 +81,7 @@ public:
 	 */
 	bool operator==(const Punto & p) const;
 
-	// TODO: Pasar a coordenadas en mapa HECHOO
-    /*
+    /**
      * @brief Pasa de coordenadas geográficas a coordenadas en el mapa
      * @param num_columnas Número de columnas del mapa
      * @param num_filas Número de filas del mapa
@@ -91,8 +89,8 @@ public:
      */
     pair<int, int> coordenadasMapa(int num_columnas, int num_filas) const;
 
-	// TODO: Punto medio usando coordenadas HECHOO
-    /* @brief Punto medio entre dos puntos
+    /**
+     * @brief Punto medio entre dos puntos
      * @param p Punto con el que calcular el punto medio
      * @param num_columnas Número de columnas del mapa
      * @param num_filas Número de filas del mapa
@@ -100,8 +98,8 @@ public:
      */
     pair<int,int> punto_medio_en_mapa(const Punto & p, int num_columnas, int num_filas) const;
 
-	// TODO: Ángulo de la recta que los une en coordenadas HECHOO
-    /* @brief Ángulo de la recta que une dos puntos
+    /**
+     * @brief Ángulo de la recta que une dos puntos
      * @param p Punto con el que calcular el ángulo
      * @param num_columnas Número de columnas del mapa
      * @param num_filas Número de filas del mapa

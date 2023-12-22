@@ -101,11 +101,11 @@ Imagen Imagen::Rota(double angulo) const {
     return Iout;
 }
 
-void EscribirImagen(const char * nombre, const Imagen & I){
+void EscribirImagen(const char nombre[], const Imagen & I){
 	// TODO Método EscribirImagen
 }
 
-void LeerImagen(const char * nombre, Imagen & I){
+void LeerImagen(const char nombre[], Imagen & I){
 	// TODO Método LeerImagen
 }
 

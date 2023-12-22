@@ -17,6 +17,14 @@
 
 using namespace std;
 
+/**
+ * @brief TDA AlmacenRutas
+ *
+ * Una instancia del tipo de datos abstracto @c AlmacenRutas es un objeto
+ * que representa un conjunto de rutas aéreas. Este conjunto
+ * es un mapa que contiene como clave el código de la ruta
+ * y como valor la ruta.
+ */
 class AlmacenRutas {
 private:
 	/**
@@ -182,17 +190,17 @@ public:
 		 friend class AlmacenRutas;
      };
 
-	friend ostream & operator<<(ostream & os, const AlmacenRutas & almacen);
-	friend istream & operator>>(istream & is, AlmacenRutas & almacen);
+	friend ostream & operator<<(ostream & os, const AlmacenRutas& almacen);
+	friend istream & operator>>(istream & is, AlmacenRutas& almacen);
 };
 
 /**
- * @brief Sobrecarga del operador de salida
+ * @brief Sobrecarga del operador de salida para la clase AlmacenRutas
  * @param os  Stream de salida
  * @param almacen  Almacén de rutas
  * @return  Stream de salida
  */
-ostream & operator<<(ostream & os, const AlmacenRutas & almacen);
+ostream & operator<<(ostream& os, const AlmacenRutas& almacen);
 
 /**
  * @brief Sobrecarga del operador de entrada
@@ -200,7 +208,7 @@ ostream & operator<<(ostream & os, const AlmacenRutas & almacen);
  * @param almacen  Almacén de rutas
  * @return  Stream de entrada
  */
-istream & operator>>(istream & is, AlmacenRutas & almacen);
+istream & operator>>(istream& is, AlmacenRutas& almacen);
 
 
 #endif //PRACTICAFINAL_ALMACENRUTAS_H

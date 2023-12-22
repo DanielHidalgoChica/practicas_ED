@@ -186,7 +186,6 @@ public:
 		return i;
 	}
 
-	// TODO: Revisar los iteradores de la clase Ruta HECHOO
 
 	friend ostream& operator<<(ostream& os, const Ruta& r);
 	friend istream& operator>>(istream& is, Ruta& r);

@@ -100,18 +100,18 @@ public:
 };
 
 /**
- * @brief Sobrecarga del operador de entrada
- * @param is Flujo de entrada
- * @param p País en el que se almacena la información
- * @return Flujo de entrada
- */
-ostream & operator<<(ostream & os, const Pais & p);
-
-/**
  * @brief Sobrecarga del operador de salida
  * @param os Flujo de salida
  * @param p País del que se obtiene la información
  * @return Flujo de salida
+ */
+ostream & operator<<(ostream & os, const Pais & p);
+
+/**
+ * @brief Sobrecarga del operador de entrada
+ * @param is Flujo de entrada
+ * @param p País en el que se almacena la información
+ * @return Flujo de entrada
  */
 istream & operator>>(istream & is, Pais & p);
 

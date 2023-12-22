@@ -44,7 +44,14 @@ struct Pixel{
 enum Tipo_Pegado {OPACO, BLENDING};
 
 
-
+/**
+ * @brief TDA Imagen
+ *
+ * Una instancia del tipo de datos abstracto @c Imagen es un objeto
+ * que representa una imagen. Este conjunto
+ * es un vector de vectores de píxeles.
+ *
+ */
 class Imagen {
 
 private:
@@ -152,6 +159,11 @@ public:
 	 */
 	Imagen ExtraerImagen(int i, int j, int nf, int nc) const;
 
+	/**
+	 * @brief Método que rota una imagen
+	 * @param rads Radianes a rotar la imagen
+	 * @return Imagen rotada
+	 */
     Imagen Rota(double rads) const;
 
 	class const_iterator;   //debemos declara de forma adelantada esta clase para

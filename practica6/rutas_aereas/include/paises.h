@@ -139,8 +139,6 @@ public:
 	 */
 	iterator end() const{return iterator(datos.end());}
 
-	// TODO: Revisar Iteradores HECHOO
-
 	/**
 	 * @brief Busca un pais en el conjunto
 	 * @param pais Pais a buscar

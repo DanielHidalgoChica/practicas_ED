@@ -62,13 +62,16 @@ istream & operator>>(istream & is, Ruta & r) {
 	is >> codigo;
 	r.setCodigo(codigo);
 
-	is >> numPuntos;
-	Punto p;
-	for (int i = 0; i < numPuntos; ++i) {
-		is >> p;
-		puntos.push_back(p);
-	}
+	if (codigo.length()>0) {
 
-	r.setPuntos(puntos);
+		is >> numPuntos;
+		Punto p;
+		for (int i = 0; i < numPuntos; ++i) {
+			is >> p;
+			puntos.push_back(p);
+		}
+
+		r.setPuntos(puntos);
+	}
 	return is;
 }

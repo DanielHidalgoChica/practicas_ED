@@ -77,7 +77,6 @@ int main (int argc, char* argv[]) {
 	}
 	file.close();
 
-	cout << "Hola" << endl;
 
 	Imagen mapa;
 	mapa.LeerImagen(argv[2]);
@@ -85,15 +84,11 @@ int main (int argc, char* argv[]) {
 	Imagen avion;
 	avion.LeerImagen(argv[5], argv[6]); // Leemos con la máscara
 
-	cout << "Hola2" << endl;
 
     AlmacenRutas Ar; // Leemos el almacen de rutas
     file.open (argv[4]);
-	cout << "Hola3" << endl;
 	if (file){
-		cout << "Hola4" << endl;
 		file >> Ar;
-		cout << "Hola5" << endl;
 	}
 	else {
 		cout << "Error de apertura del fichero " << argv[4] << endl;
@@ -165,5 +160,7 @@ int main (int argc, char* argv[]) {
     string result_path = RESULT_PATH + route.getCodigo() + string("_Mapa.ppm");
     mapa.EscribirImagen(result_path.c_str());
 
+
+	cout << endl << endl;
     return 0;
 }

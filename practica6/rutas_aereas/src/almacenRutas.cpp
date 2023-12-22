@@ -38,7 +38,7 @@ int AlmacenRutas::getNumRutas() const {
 
 ostream & operator<<(ostream & os, const AlmacenRutas & ar) {
 
-	os << MAGIC_CAD << endl;
+	//os << MAGIC_CAD << endl;
 
 	AlmacenRutas::const_iterator it;
 	for (it = ar.begin(); it != ar.end(); ++it) {
@@ -57,10 +57,8 @@ istream & operator>>(istream & is, AlmacenRutas & ar) {
 		exit (-1);
 	}
 
-	int i=0;
 	while (is >> ruta) {
 		ar.insertarRuta(ruta);
-		cout << "Tomo ruta " << i++ << endl;
 	}
 
 	return is;

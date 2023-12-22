@@ -49,7 +49,7 @@
 #include "imagen.h"
 #include <fstream>
 
-const string RESULT_PATH = "/home/daniel/Daniel/University/DGIIM/II/ED/practicas_ED/practica6/datos/resultados";
+#define RESULT_PATH "./output/"
 
 int main (int argc, char* argv[]) {
     if (argc!=7){
@@ -91,6 +91,7 @@ int main (int argc, char* argv[]) {
 		cout << "Error de apertura del fichero " << argv[4] << endl;
 		return -1;
 	}
+	file.close();
 
     cout<<"Las rutas: "<<endl<<Ar; // Muestra todas las rutas disponibles
     cout<<"Introduzca el codigo de una ruta"<<endl;
@@ -140,11 +141,11 @@ int main (int argc, char* argv[]) {
             point2=*it_r;
             coord_point2 = point2.coordenadasMapa(mapa.getColumnas(), mapa.getFilas());
             coord_point_midpoint = point1.punto_medio_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
-            orientation_angle = point1.angulo_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
+            orientation_angle = point2.angulo_en_mapa(point1, mapa.getColumnas(), mapa.getFilas());
 
             // Pego los 3 aviones correspondientes
             Tipo_Pegado tp_op = OPACO;
-            avion_rotado = avion.Rota(orientation_angle);
+            avion_rotado = avion.Rota(-orientation_angle);
             mapa.PutImagen(coord_point_midpoint.first, coord_point_midpoint.second, avion_rotado, tp_op);
             mapa.PutImagen(coord_point1.first, coord_point1.second, avion_rotado, tp_op);
             mapa.PutImagen(coord_point2.first, coord_point2.second, avion_rotado, tp_op);
@@ -152,8 +153,10 @@ int main (int argc, char* argv[]) {
     } // while (it_r != route.end())
 
 	// TODO: Revisar final. Guardar, etc.
-    string result_path = RESULT_PATH + "/mapa.ppm";
+    string result_path = RESULT_PATH + route.getCodigo() + string("_Mapa.ppm");
     mapa.EscribirImagen(result_path.c_str());
+
+
 
     return 0;
 }

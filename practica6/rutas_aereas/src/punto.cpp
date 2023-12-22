@@ -29,9 +29,8 @@ void Punto::setLongitud(double lon){
 }
 
 bool Punto::operator==(const Punto &p) const{
-    bool iguales;
-    bool igual_long = ((longitud - p.longitud) < 0.01);
-    bool igual_lat = ((latitud - p.latitud) < 0.01);
+    bool igual_long = (abs(longitud - p.longitud) < 1e-5);
+    bool igual_lat = (abs(latitud - p.latitud) < 1e-5);
     return(igual_long && igual_lat);
 }
 
@@ -52,7 +51,8 @@ istream & operator>>(istream & is, Punto &p){
 pair<int, int> Punto::coordenadasMapa(int num_columnas, int num_filas) const {
     int col = (int) ((longitud + 180) * num_columnas / 360);
     int fila = (int) ((90 - latitud) * num_filas / 180);
-    return pair<int, int>(col, fila);
+    return pair<int, int>(fila, col);
+	// TODO: Modificar Columnas filas
 }
 
 pair<int,int> Punto::punto_medio_en_mapa(const Punto & p, int num_columnas, int num_filas) const{

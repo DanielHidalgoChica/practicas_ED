@@ -251,8 +251,10 @@ Imagen Imagen::Rota(double angulo) const {
             if ((old_row >= 0) && (old_row < getFilas()) &&
                 (old_col >= 0) && (old_col < getColumnas())) {
                 Iout(rows, cols) = (*this).operator()(old_row, old_col);
-            } else
-                Iout(rows, cols).r = Iout(rows, cols).g = Iout(rows, cols).b = 255;
+            } else {
+	            Iout(rows, cols).r = Iout(rows, cols).g = Iout(rows, cols).b = 255;
+				Iout(rows, cols).transp = 0;
+            }
         }
     }
     return Iout;

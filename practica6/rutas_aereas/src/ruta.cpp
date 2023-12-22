@@ -1,6 +1,6 @@
 /**
  * @file ruta.cpp
- * @brief Fichero de implementación del TDA ruta
+ * @brief Fichero de implementación del TDA Ruta
  *
  *
  * @author Arturo Olivares Martos

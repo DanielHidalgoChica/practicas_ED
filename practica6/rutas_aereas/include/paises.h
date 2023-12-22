@@ -1,6 +1,6 @@
 /**
  * @file paises.h
- * @brief Fichero cabecera del TDA paises
+ * @brief Fichero cabecera del TDA Paises
  *
  *
  * @author Arturo Olivares Martos
@@ -144,7 +144,14 @@ public:
 	 * @param pais Pais a buscar
 	 * @return Iterador apuntando al pais buscado, o end() si no se encuentra.
 	 */
-	iterator find(const Pais &pais);
+	iterator find(const Pais &pais) const;
+
+	/**
+	 * @brief Busca un pais en el conjunto dado su punto
+	 * @param punto Punto que representa el pais a buscar
+	 * @return Iterador apuntando al primer pais cuyo punto coincide, o end() si no se encuentra.
+	 */
+	iterator find(const Punto &punto) const;
 
 	friend ostream& operator<<(ostream &os, const Paises &paises);
 	friend istream& operator>>(istream &is, Paises &paises);

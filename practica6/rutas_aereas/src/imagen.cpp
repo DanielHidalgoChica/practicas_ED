@@ -8,7 +8,6 @@
  */
 
 #include "imagen.h"
-#include <iostream>
 #include <cmath>
 
 using namespace std;
@@ -31,11 +30,11 @@ Pixel &Imagen::operator()(int i, int j) {
 	return datos[i][j];
 }
 
-int Imagen::GetFilas() const {
+int Imagen::getFilas() const {
 	return datos.size();
 }
 
-int Imagen::GetColumnas() const {
+int Imagen::getColumnas() const {
 	return datos[0].size();
 }
 
@@ -52,10 +51,10 @@ Imagen Imagen::Rota(double angulo) const {
     rcorners[1]=0;
     ccorners[0]=0;
     ccorners[2]=0;
-    rcorners[2]=GetFilas()-1;
-    rcorners[3]=GetFilas()-1;
-    ccorners[1]=GetColumnas()-1;
-    ccorners[3]=GetColumnas()-1;
+    rcorners[2]=getFilas()-1;
+    rcorners[3]=getFilas()-1;
+    ccorners[1]=getColumnas()-1;
+    ccorners[3]=getColumnas()-1;
     new_row_min=0;
     new_col_min=0;
     new_row_max=0;
@@ -91,8 +90,8 @@ Imagen Imagen::Rota(double angulo) const {
             float old_col=-oldrowsin+oldcolcos;
             old_row=ceil((double)old_row);
             old_col=ceil((double)old_col);
-            if ((old_row >= 0) && (old_row < GetFilas()) &&
-                (old_col >= 0) && (old_col < GetColumnas())) {
+            if ((old_row >= 0) && (old_row < getFilas()) &&
+                (old_col >= 0) && (old_col < getColumnas())) {
                 Iout(rows, cols) = (*this).operator()(old_row, old_col);
             } else
                 Iout(rows, cols).r = Iout(rows, cols).g = Iout(rows, cols).b = 255;

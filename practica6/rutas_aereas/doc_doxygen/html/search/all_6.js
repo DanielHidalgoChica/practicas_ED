@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['imagen_29',['Imagen',['../classImagen.html',1,'Imagen'],['../classImagen.html#ab2e649aa7a105155c7bfdb846abf0528',1,'Imagen::Imagen()'],['../classImagen.html#a7632978f5ae089713e652bb362da1e78',1,'Imagen::Imagen(int filas, int columnas)']]],
-  ['imagen_2ecpp_30',['imagen.cpp',['../imagen_8cpp.html',1,'']]],
-  ['imagen_2eh_31',['imagen.h',['../imagen_8h.html',1,'']]],
-  ['imagenes_2ecpp_32',['imagenES.cpp',['../imagenES_8cpp.html',1,'']]],
-  ['imagenes_2eh_33',['imagenES.h',['../imagenES_8h.html',1,'']]],
-  ['img_5fdesconocido_34',['IMG_DESCONOCIDO',['../imagenES_8h.html#a8914f6544a484741b05c092d9e7522eda23c8d70e6eadf2d0d0ee1fd3bb293384',1,'imagenES.h']]],
-  ['img_5fpgm_35',['IMG_PGM',['../imagenES_8h.html#a8914f6544a484741b05c092d9e7522eda8fbef75c1a0002dd6099c6cc1a43e441',1,'imagenES.h']]],
-  ['img_5fppm_36',['IMG_PPM',['../imagenES_8h.html#a8914f6544a484741b05c092d9e7522eda1269c51434b906a7e507f5b49663bf4f',1,'imagenES.h']]],
-  ['insertar_37',['insertar',['../classPaises.html#ab38b8201fad37b74e9356adf8b0312a7',1,'Paises']]],
-  ['insertarpunto_38',['insertarPunto',['../classRuta.html#a11acdd4bfc98d46e31f45b1bf74adc59',1,'Ruta']]],
-  ['insertarruta_39',['insertarRuta',['../classAlmacenRutas.html#a0e5dc949b2453f0f9ba18a9c26280c78',1,'AlmacenRutas']]],
-  ['iterator_40',['iterator',['../classAlmacenRutas_1_1iterator.html',1,'AlmacenRutas::iterator'],['../classImagen_1_1iterator.html',1,'Imagen::iterator'],['../classAlmacenRutas_1_1iterator.html#a95312ff8f12fd488cb84a2c57bfdcf9c',1,'AlmacenRutas::iterator::iterator()'],['../classAlmacenRutas_1_1iterator.html#ad4155b2ee25ec58082a695713b6c2808',1,'AlmacenRutas::iterator::iterator(map&lt; string, Ruta &gt;::iterator it)'],['../classImagen_1_1iterator.html#a691beea7100ba0b6536917fccdb3710b',1,'Imagen::iterator::iterator()'],['../classPaises_1_1iterator.html#a57a185897b05cb53944a1e40952c77ff',1,'Paises::iterator::iterator()'],['../classPaises_1_1iterator.html#a540d62a3c6efe5c523529625eac353ad',1,'Paises::iterator::iterator(set&lt; Pais &gt;::iterator i)'],['../classPaises_1_1iterator.html',1,'Paises::iterator'],['../classRuta_1_1iterator.html',1,'Ruta::iterator']]]
+  ['g_19',['g',['../structPixel.html#a8407845aacf1663d9463475619911686',1,'Pixel']]],
+  ['getbandera_20',['getBandera',['../classPais.html#a31a1c6c4cb42ac61dcb49ea5eefb62e8',1,'Pais']]],
+  ['getcodigo_21',['getCodigo',['../classRuta.html#a3bcb9bd7b55c678b15473c802129e45c',1,'Ruta']]],
+  ['getcolumnas_22',['getColumnas',['../classImagen.html#a8fcbfc520e5e5f65be694fd42ef80ed2',1,'Imagen']]],
+  ['getdatos_23',['getDatos',['../classPaises.html#a7efe491dc08fe578efd534683e5af212',1,'Paises']]],
+  ['getfilas_24',['getFilas',['../classImagen.html#aa55878206896d953af61b9e808525ba6',1,'Imagen']]],
+  ['getlatitud_25',['getLatitud',['../classPunto.html#a5811eb441fc3ad9e9d4d60f03b21069f',1,'Punto']]],
+  ['getlongitud_26',['getLongitud',['../classPunto.html#a4f695efc926958f7237d72bfe3c62f3b',1,'Punto']]],
+  ['getnombre_27',['getNombre',['../classPais.html#ad96734b99172b71684fd26664647f3a5',1,'Pais']]],
+  ['getnumpuntos_28',['getNumPuntos',['../classRuta.html#a5108b2783f884cc5cf1317b44130f4de',1,'Ruta']]],
+  ['getnumrutas_29',['getNumRutas',['../classAlmacenRutas.html#ae37e730e77156fcf72a95f85190b6a11',1,'AlmacenRutas']]],
+  ['getpunto_30',['getPunto',['../classPais.html#a3db8213a9bb93e0fe1fc6fe6667ce702',1,'Pais']]],
+  ['getpuntos_31',['getPuntos',['../classRuta.html#adb986012b262e0ec7894445d9ef316be',1,'Ruta']]],
+  ['getruta_32',['getRuta',['../classAlmacenRutas.html#aefc36f09e4c6c7d0f2a3945315e5dec5',1,'AlmacenRutas']]]
 ];

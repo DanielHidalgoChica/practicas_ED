@@ -1,6 +1,6 @@
 /**
  * @file almacenRutas.cpp
- * @brief Fichero de implementación del TDA almacenRutas
+ * @brief Fichero de implementación del TDA AlmacenRutas
  *
  *
  * @author Arturo Olivares Martos
@@ -16,6 +16,10 @@ AlmacenRutas::AlmacenRutas(const map<string, Ruta> &rutas) {
 
 const Ruta& AlmacenRutas::getRuta(string codigo) {
 	return rutas[codigo];
+}
+
+bool AlmacenRutas::existeRuta(string codigo) {
+	return rutas.find(codigo) != rutas.end();
 }
 
 void AlmacenRutas::insertarRuta(const Ruta &ruta) {

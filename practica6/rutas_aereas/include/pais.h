@@ -1,6 +1,6 @@
 /**
  * @file pais.h
- * @brief Fichero cabecera del TDA pais
+ * @brief Fichero cabecera del TDA Pais
  *
  * @author Arturo Olivares Martos
  * @author Daniel Hidalgo Chica
@@ -17,6 +17,8 @@
  *
  * Clase que representa un país.
  * Un objeto de esta clase está compuesto por un nombre, la ubicación de su bandera en el sistema de archivos y un punto que representa su posición en el mapa.
+ *
+ *
  */
 class Pais {
 private:
@@ -27,7 +29,7 @@ private:
 	string nombre;
 
 	/**
-	 * @brief Bandera del país. String que representa su ubicación en el sistema de archivos
+	 * @brief Bandera del país. String que representa el filename de la bandera en el sistema de archivose
 	 */
 	string bandera;
 
@@ -59,7 +61,7 @@ public:
 
 	/**
 	 * @brief Devuelve la ubicación de la bandera del país en el sistema de archivos
-	 * @return Ubicación de la bandera del país en el sistema de archivos
+	 * @return Filename de la bandera en el sistema de archivos
 	 */
 	string getBandera() const;
 
@@ -77,7 +79,7 @@ public:
 
 	/**
 	 * @brief Modifica la ubicación de la bandera del país en el sistema de archivos
-	 * @param bandera Nueva ubicación de la bandera del país en el sistema de archivos
+	 * @param bandera Nueva filename de la bandera del país en el sistema de archivos
 	 */
 	void setBandera(string bandera);
 

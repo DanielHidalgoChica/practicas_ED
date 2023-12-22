@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['setbandera_74',['setBandera',['../classPais.html#afd9779d627f7989f9e13eb0320a55bfb',1,'Pais']]],
-  ['setcodigo_75',['setCodigo',['../classRuta.html#ac282d61bb39a0657d7ab1d42273b6c2a',1,'Ruta']]],
-  ['setlatitud_76',['setLatitud',['../classPunto.html#a24ae9de0ab89b9e922446fe641e25ad6',1,'Punto']]],
-  ['setlongitud_77',['setLongitud',['../classPunto.html#a91b92ecb5f1db162dcc7adf5068b5445',1,'Punto']]],
-  ['setnombre_78',['setNombre',['../classPais.html#a5181e631ce20fb8957dafdb4ce789644',1,'Pais']]],
-  ['setpunto_79',['setPunto',['../classPais.html#a6d18913fac2b4d878acd0b70b4da7bf7',1,'Pais']]],
-  ['setpuntos_80',['setPuntos',['../classRuta.html#a7a2b5746e7e92e864b05be33e23b0b07',1,'Ruta']]],
-  ['size_81',['size',['../classPaises.html#ac1ecb1dee212922067883ca510eea65a',1,'Paises']]]
+  ['r_73',['r',['../structPixel.html#a038ad5b3349e7548d17c5d3bec511b94',1,'Pixel']]],
+  ['rota_74',['Rota',['../classImagen.html#a90fbc457b26a7ad970d3371b643778f8',1,'Imagen']]],
+  ['ruta_75',['Ruta',['../classRuta.html',1,'Ruta'],['../classRuta.html#a1020b0a24a1212f30f4f74284bec3597',1,'Ruta::Ruta()'],['../classRuta.html#a61e517c8157d8764adae01b7253df6ff',1,'Ruta::Ruta(string codigo, const list&lt; Punto &gt; &amp;puntos)']]],
+  ['ruta_2ecpp_76',['ruta.cpp',['../ruta_8cpp.html',1,'']]],
+  ['ruta_2eh_77',['ruta.h',['../ruta_8h.html',1,'']]]
 ];

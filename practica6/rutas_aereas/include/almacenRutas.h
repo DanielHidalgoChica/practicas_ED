@@ -1,6 +1,6 @@
 /**
  * @file almacenRutas.h
- * @brief Fichero cabecera del TDA almacenRutas
+ * @brief Fichero cabecera del TDA AlmacenRutas
  *
  *
  * @author Arturo Olivares Martos
@@ -51,8 +51,17 @@ public:
 	 * @brief Método que devuelve la ruta correspondiente a un código
 	 * @param codigo Código de la ruta
 	 * @return Ruta correspondiente al código
+	 * @pre existeRuta(codigo) == true
 	 */
 	const Ruta& getRuta(string codigo);
+
+	/**
+	 * @brief Método que comprueba si existe una ruta en el almacén
+	 * @param codigo  Código de la ruta
+	 * @retval true Si existe
+	 * @retval false Si no existe
+	 */
+	bool existeRuta(string codigo);
 
 	/**
 	 * @brief Método que añade una ruta al almacén
@@ -165,28 +174,69 @@ public:
 	  */
 	 class const_iterator {
      private:
+		 /**
+		  * @brief Iterador constante de la clase map
+		  */
 		 map<string, Ruta>::const_iterator it;
      public:
 
+		 /**
+		  * @brief Constructor por defecto de la clase
+		  */
 		 const_iterator() {}
+
+		 /**
+		  * @brief Constructor de la clase
+		  * @param it Iterador constante de la clase map
+		  */
 		 const_iterator(const map<string, Ruta>::const_iterator &it) : it(it) {}
+
+		 /**
+		  * @brief Sobrecarga del operador de incremento
+		  * @return Iterador incrementado
+		  */
 		 const_iterator &operator++() {
 			 ++it;
 			 return *this;
 		 }
+
+		 /**
+		  * @brief Sobrecarga del operador de decremento
+		  * @return Iterador decrementado
+		  */
 		 const_iterator &operator--() {
 			 --it;
 			 return *this;
 		 }
-		 bool operator==(const const_iterator &i) {
-			 return it == i.it;
-		 }
-		 bool operator!=(const const_iterator &i) {
-			 return it != i.it;
-		 }
+
+		 /**
+		  * @brief Sobrecarga del operador de acceso
+		  * @return Ruta apuntada por el iterador
+		  */
 		 const Ruta &operator*() {
 			 return it->second;
 		 }
+
+		 /**
+		  * @brief Sobrecarga del operador de igualdad
+		  * @param i Iterador con el que se compara
+		  * @retval true Si son iguales
+		  * @retval false Si son distintos
+		  */
+		 bool operator==(const const_iterator &i) {
+			 return it == i.it;
+		 }
+
+		 /**
+		  * @brief Sobrecarga del operador de desigualdad
+		  * @param i Iterador con el que se compara
+		  * @retval true Si son distintos
+		  * @retval false Si son iguales
+		  */
+		 bool operator!=(const const_iterator &i) {
+			 return it != i.it;
+		 }
+
 		 friend class AlmacenRutas;
      };
 

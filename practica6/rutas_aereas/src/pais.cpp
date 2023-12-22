@@ -1,6 +1,6 @@
 /**
  * @file pais.cpp
- * @brief Fichero de implementación del TDA pais
+ * @brief Fichero de implementación del TDA Pais
  *
  *
  * @author Arturo Olivares Martos

@@ -29,9 +29,20 @@ void Paises::eliminar(const Pais &pais) {
 	datos.erase(pais);
 }
 
-Paises::iterator Paises::find(const Pais &pais) {
+Paises::iterator Paises::find(const Pais &pais) const {
 	return datos.find(pais);
 }
+
+Paises::iterator Paises::find(const Punto &punto) const {
+	Paises::iterator it;
+	for (it = this->begin(); it != this->end(); ++it) {
+		if ((*it).getPunto() == punto) {
+			return it;
+		}
+	}
+	return this->end();
+}
+
 
 ostream &operator<<(ostream &os, const Paises &paises) {
 	Paises::iterator it;

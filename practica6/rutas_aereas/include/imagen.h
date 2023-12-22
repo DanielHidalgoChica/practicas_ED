@@ -1,6 +1,6 @@
 /**
  * @file imagen.h
- * @brief Fichero cabecera para el TDA imagen
+ * @brief Fichero cabecera para el TDA Imagen
  *
  * Permite la manipulación de imágenes
  *
@@ -17,15 +17,25 @@ using namespace std;
 #include <string>
 
 /**
- * @brief Estrucutra para representar un pixel
+ * @brief Estrucutra para representar un pixel de una imagen.
  *
  * Un pixel es un conjunto de 3 componentes RGB y un valor de transparencia.
  */
 struct Pixel{
 	/**
-	 * @brief Componentes RGB del pixel
+	 * @brief Componente R de RGB del pixel
 	 */
-	unsigned char r,g,b;
+	unsigned char r;
+
+	/**
+	 * @brief Componente G de RGB del pixel
+	 */
+	unsigned char g;
+
+	/**
+	 * @brief Componente B de RGB del pixel
+	 */
+	unsigned char b;
 
 	/**
 	 * @brief Transparencia del pixel.
@@ -89,8 +99,8 @@ public:
 	 * @param i Fila a acceder
 	 * @param j Columna a acceder
 	 * @return Referencia al pixel de la posición (i,j)
-	 * @pre @a 0<=filas<=GetFilas()
-	 * @pre @a 0<=columnas<=GetColumnas()
+	 * @pre @a 0<=filas<=getFilas()
+	 * @pre @a 0<=columnas<=getColumnas()
 	 */
 	Pixel & operator()(int i, int j);
 
@@ -107,13 +117,13 @@ public:
 	 * @brief Método que informa del número de filas de la imagen
 	 * @return Número de filas de la imagen
 	 */
-	int GetFilas() const;
+	int getFilas() const;
 
 	/**
 	 * @brief Método que informa del número de columnas de la imagen
 	 * @return Número de columnas de la imagen
 	 */
-	int GetColumnas() const;
+	int getColumnas() const;
 
 	/**
 	 * @brief Método que escribe una imagen en disco en el archivo dado por @a nombre.
@@ -140,8 +150,8 @@ public:
 	 * @param img Imagen a pegar
 	 * @param tp Tipo de pegado. Por defecto es OPACO
 	 * @pre @a 0<=i,j
-	 * @pre @a 0<=i+img.GetFilas()<=GetFilas()
-	 * @pre @a 0<=j+img.GetColumnas()<=GetColumnas()
+	 * @pre @a 0<=i+img.getFilas()<=getFilas()
+	 * @pre @a 0<=j+img.getColumnas()<=getColumnas()
 	 */
 	void PutImagen(int i, int j, const Imagen &img, Tipo_Pegado tp=OPACO);
 
@@ -154,8 +164,8 @@ public:
 	 * @param nc Número de columnas de la imagen a extraer
 	 * @return Imagen extraída
 	 * @pre @a 0<=i,j
-	 * @pre @a 0<=i+nf<=GetFilas()
-	 * @pre @a 0<=j+nc<=GetColumnas()
+	 * @pre @a 0<=i+nf<=getFilas()
+	 * @pre @a 0<=j+nc<=getColumnas()
 	 */
 	Imagen ExtraerImagen(int i, int j, int nf, int nc) const;
 

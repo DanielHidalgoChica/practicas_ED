@@ -1,6 +1,6 @@
 /**
  * @file ruta.h
- * @brief Fichero cabecera del TDA ruta
+ * @brief Fichero cabecera del TDA Ruta
  *
  *
  * @author Arturo Olivares Martos
@@ -92,27 +92,68 @@ public:
 	 */
 	class iterator{
 	private:
+		/**
+		 * @brief Iterador de la lista de puntos
+		 */
 		list<Punto>::iterator it;
 	public:
+		/**
+		 * @brief Constructor por defecto
+		 */
 		iterator(){}
+
+		/**
+		 * @brief Constructor de la clase
+		 * @param it Iterador de la lista de puntos
+		 */
 		iterator(const list<Punto>::iterator& it):it(it){}
+
+		/**
+		 * @brief Operador de incremento
+		 * @return Iterador incrementado
+		 */
 		iterator& operator++(){
 			++it;
 			return *this;
 		}
+
+		/**
+		 * @brief Operador de decremento
+		 * @return Iterador decrementado
+		 */
 		iterator& operator--(){
 			--it;
 			return *this;
 		}
+
+		/**
+		 * @brief Operador de igualdad
+		 * @param i Iterador a comparar
+		 * @retval true si son iguales
+		 * @retval false si son distintos
+		 */
 		bool operator==(const iterator& i){
 			return it==i.it;
 		}
+
+		/**
+		 * @brief Operador de desigualdad
+		 * @param i Iterador a comparar
+		 * @retval true si son distintos
+		 * @retval false si son iguales
+		 */
 		bool operator!=(const iterator& i){
 			return it!=i.it;
 		}
+
+		/**
+		 * @brief Operador de acceso
+		 * @return Referencia al punto actual
+		 */
 		Punto& operator*(){
 			return *it;
 		}
+
 		friend class Ruta;
 		friend class const_iterator;
 	};
@@ -142,24 +183,64 @@ public:
 	 */
 	class const_iterator{
 	private:
+		/**
+		 * @brief Iterador constante de la lista de puntos
+		 */
 		list<Punto>::const_iterator it;
 	public:
+		/**
+		 * @brief Constructor por defecto
+		 */
 		const_iterator(){}
+
+		/**
+		 * @brief Constructor de la clase
+		 * @param it Iterador constante de la lista de puntos
+		 */
 		const_iterator(const list<Punto>::const_iterator& it):it(it){}
+
+		/**
+		 * @brief Operador de incremento
+		 * @return Iterador constante incrementado
+		 */
 		const_iterator& operator++(){
 			++it;
 			return *this;
 		}
+
+		/**
+		 * @brief Operador de decremento
+		 * @return Iterador constante decrementado
+		 */
 		const_iterator& operator--(){
 			--it;
 			return *this;
 		}
+
+		/**
+		 * @brief Operador de igualdad
+		 * @param i Iterador constante a comparar
+		 * @retval true si son iguales
+		 * @retval false si son distintos
+		 */
 		bool operator==(const const_iterator& i){
 			return it==i.it;
 		}
+
+		/**
+		 * @brief Operador de desigualdad
+		 * @param i Iterador constante a comparar
+		 * @retval true si son distintos
+		 * @retval false si son iguales
+		 */
 		bool operator!=(const const_iterator& i){
 			return it!=i.it;
 		}
+
+		/**
+		 * @brief Operador de acceso
+		 * @return Referencia constante al punto actual
+		 */
 		const Punto& operator*(){
 			return *it;
 		}

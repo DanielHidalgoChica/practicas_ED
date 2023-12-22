@@ -8,3 +8,4 @@ OUTPUT_LANGUAGE        = Spanish
 USE_MATHJAX            = YES
 SOURCE_BROWSER         = YES
 STRIP_FROM_PATH        = "@CMAKE_SOURCE_DIR@/"
+EXCLUDE_SYMBOLS        = "main"

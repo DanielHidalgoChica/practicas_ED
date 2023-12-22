@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transparencia_172',['transparencia',['../structPixel.html#ace9086f9be9b453b5200956ff2098be5',1,'Pixel']]]
+  ['g_177',['g',['../structPixel.html#a8407845aacf1663d9463475619911686',1,'Pixel']]]
 ];

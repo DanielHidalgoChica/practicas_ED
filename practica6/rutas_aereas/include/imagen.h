@@ -42,7 +42,7 @@ struct Pixel{
 	 *
 	 * 0 es totalmente transparente y 255 totalmente opaco
 	 */
-	unsigned char transparencia;
+	unsigned char transp;
 };
 
 /**
@@ -65,12 +65,29 @@ enum Tipo_Pegado {OPACO, BLENDING};
 class Imagen {
 
 private:
+    /**
+     * @brief Matriz dinámica donde alojaremos los píxeles de la imagen
+     */
+    Pixel **data;
+    /**
+     * @brief Número de filas de la imagen
+     */
+    int nf;
+    /**
+     * @brief Número de columnas de la imagen
+     */
+    int nc;
+    /**
+     * @brief Método privado que borra la imagen
+     */
+    void borrar();
+    /**
+     * @brief Método privado que copia una imagen
+     * @param img Imagen a copiar
+     */
+    void copiar(const Imagen &img);
 
-	/**
-	 * @brief Vector de vectores de pixeles que representa la imagen
-	 */
-	vector<vector<Pixel>> datos;
-
+    Pixel media_pixeles(const Pixel &p1, const Pixel &p2) const;
 public:
 
 	/**
@@ -92,6 +109,13 @@ public:
 	 * @pre @a columnas >= 0
 	 */
 	Imagen(int filas, int columnas);
+
+
+    /**
+     * @brief Constructor de copia de una imagen
+     * @param img
+     */
+    Imagen(const Imagen &img);
 
 	/**
 	 * @brief Operador de acceso
@@ -117,26 +141,26 @@ public:
 	 * @brief Método que informa del número de filas de la imagen
 	 * @return Número de filas de la imagen
 	 */
-	int getFilas() const;
+	int getFilas() const {return nf;};
 
 	/**
 	 * @brief Método que informa del número de columnas de la imagen
 	 * @return Número de columnas de la imagen
 	 */
-	int getColumnas() const;
+	int getColumnas() const{return nc;};
 
 	/**
 	 * @brief Método que escribe una imagen en disco en el archivo dado por @a nombre.
 	 * @param nombre archivo donde guardar la imagen.
 	 */
-	void EscribirImagen (const char nombre[]) const;
+	void EscribirImagen (const char img_path[]) const;
 
 	/**
 	 * @brief Método que lee una imagen del disco desde el archivo dado por @a nombre.
 	 * @param nombre archivo desde donde leer la imagen.
 	 * @param nombre_mascara archivo donde se encuentra la máscara, en caso de que haya.
 	 */
-	void LeerImagen (const char nombre[], string nombre_mascara="");
+	void LeerImagen (const char img_path[], const string &nombre_mascara="");
 
 	/**
 	 * @brief Método que resetea la transparencia de todos los píxeles de la imagen a 255 (opaco)
@@ -168,6 +192,13 @@ public:
 	 * @pre @a 0<=j+nc<=getColumnas()
 	 */
 	Imagen ExtraerImagen(int i, int j, int nf, int nc) const;
+
+    /**
+     * @brief Operador de asignación
+     * @param img Imagen a asignar
+     * @return
+     */
+    Imagen &operator=(const Imagen &img);
 
 	/**
 	 * @brief Método que rota una imagen

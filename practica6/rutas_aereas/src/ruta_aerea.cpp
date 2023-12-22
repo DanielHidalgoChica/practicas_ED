@@ -49,6 +49,8 @@
 #include "imagen.h"
 #include <fstream>
 
+const string RESULT_PATH = "/home/daniel/Daniel/University/DGIIM/II/ED/practicas_ED/practica6/datos/resultados";
+
 int main (int argc, char* argv[]) {
     if (argc!=7){
         cout<<"Los parametros son:"<<endl;
@@ -117,6 +119,11 @@ int main (int argc, char* argv[]) {
         coord_point1 = point1.coordenadasMapa(mapa.getColumnas(), mapa.getFilas());
 
         // Extraigo país
+        Paises::iterator pos_pais_point1 = paises.find(point1);
+        if (pos_pais_point1 == paises.end()) {
+            cout << "No pudo encontrarse el pais que tiene como punto " << point1 << endl;
+            exit(-1);
+        }
         pais = *(paises.find(point1));
 
         // Pongo bandera en el mapa
@@ -145,6 +152,8 @@ int main (int argc, char* argv[]) {
     } // while (it_r != route.end())
 
 	// TODO: Revisar final. Guardar, etc.
+    string result_path = RESULT_PATH + "/mapa.ppm";
+    mapa.EscribirImagen(result_path.c_str());
 
     return 0;
 }

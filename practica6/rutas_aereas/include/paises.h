@@ -63,6 +63,11 @@ public:
 	 */
 	void eliminar(const Pais &pais);
 
+    /**
+     * @brief Elimina todos los paises del conjunto
+     */
+    void clear();
+
 	/**
 	 * @brief Clase iterator
 	 *

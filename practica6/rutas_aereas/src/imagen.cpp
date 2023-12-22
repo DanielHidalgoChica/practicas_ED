@@ -8,34 +8,192 @@
  */
 
 #include "imagen.h"
+#include "imagenES.h"
+#include "string.h"
 #include <cmath>
+#include <cassert>
+#include <iostream>
 
 using namespace std;
 
-Imagen::Imagen(){
-	datos.resize(0);
+Imagen::Imagen()
+{
+    data = 0;
+    nf = nc = 0;
 }
 
-Imagen::Imagen(int filas, int columnas){
-	datos.resize(filas);
-	for(int i=0;i<filas;i++)
-		datos[i].resize(columnas);
+Imagen::Imagen(int f, int c)
+{
+    nf = f;
+    nc = c;
+    data = new Pixel *[nf];
+    for (int i = 0; i < nf; i++)
+    {
+        data[i] = new Pixel[nc];
+        for (int j = 0; j < nc; j++)
+        {
+            data[i][j].r = 255;
+            data[i][j].g = 255;
+            data[i][j].b = 255;
+            data[i][j].transp = 255;
+        }
+    }
+}
+
+void Imagen::borrar()
+{
+    for (int i = 0; i < nf; i++)
+        delete[] data[i];
+    delete[] data;
+}
+
+void Imagen::copiar(const Imagen &img)
+{
+
+    nf = img.nf;
+    nc = img.nc;
+    data = new Pixel *[nf];
+    for (int i = 0; i < nf; i++)
+    {
+        data[i] = new Pixel[nc];
+        for (int j = 0; j < nc; j++)
+        {
+            data[i][j] = img.data[i][j];
+        }
+    }
+}
+
+Imagen& Imagen::operator=(const Imagen &img)
+{
+    if (this != &img)
+    {
+        borrar();
+        copiar(img);
+    }
+    return *this;
+}
+
+Pixel Imagen::media_pixeles(const Pixel& p1, const Pixel& p2) const{
+    Pixel ret_p;
+    ret_p.r = (p1.r + p2.r) / 2;
+    ret_p.g = (p1.g + p2.g) / 2;
+    ret_p.b = (p1.b + p2.b) / 2;
+    ret_p.transp = 255;
+    return ret_p;
+}
+
+void Imagen::LeerImagen(const char *img_path, const string &mascara_path)
+{
+    int f, c;
+    unsigned char *aux, *aux_mask;
+
+    LeerTipoImagen(img_path, f, c);
+    aux = new unsigned char[f * c * 3];
+    LeerImagenPPM(img_path, f, c, aux);
+    if (mascara_path != "")
+    {
+        int fm, cm;
+        LeerTipoImagen(mascara_path.c_str(), fm, cm);
+        aux_mask = new unsigned char[fm * cm];
+        LeerImagenPGM(mascara_path.c_str(), fm, cm, aux_mask);
+    }
+    else
+    {
+        aux_mask = 0;
+    }
+
+    Imagen img(f, c);
+    int total = f * c * 3;
+    for (int i = 0; i < total; i += 3)
+    {
+        int posi = i / (c * 3);
+        int posj = (i % (c * 3)) / 3;
+
+        img.data[posi][posj].r = aux[i];
+        img.data[posi][posj].g = aux[i + 1];
+        img.data[posi][posj].b = aux[i + 2];
+        if (aux_mask != 0)
+            img.data[posi][posj].transp = aux_mask[i / 3];
+        else
+            img.data[posi][posj].transp = 255;
+    }
+
+    *this = img;
+    if (aux_mask != 0)
+        delete[] aux_mask;
+    delete[] aux;
+}
+
+void Imagen::EscribirImagen(const char img_path[]) const
+{
+    unsigned char *aux = new unsigned char[nf * nc * 3];
+    unsigned char *m = new unsigned char[nf * nc];
+
+    int total = nf * nc * 3;
+
+    for (int i = 0; i < total; i += 3)
+    {
+        int posi = i / (nc * 3);
+        int posj = (i % (nc * 3)) / 3;
+
+        aux[i] = data[posi][posj].r;
+        aux[i + 1] = data[posi][posj].g;
+        aux[i + 2] = data[posi][posj].b;
+        m[i / 3] = data[posi][posj].transp;
+    }
+
+    if (!EscribirImagenPPM(img_path, aux, nf, nc))
+    {
+        cerr << "Ha habido un problema en la escritura de " << img_path << endl;
+    }
+
+    delete[] aux;
+
+    string n_aux = "mascara_";
+    n_aux = n_aux + img_path;
+    size_t found = n_aux.find(".ppm");
+
+    if (found != string::npos)
+    {
+        n_aux = n_aux.substr(0, found);
+    }
+
+    n_aux = n_aux + ".pgm";
+
+    if (!EscribirImagenPGM(n_aux.c_str(), m, nf, nc))
+    {
+        cerr << "Ha habido un problema en la escritura de " << n_aux << endl;
+    }
+
+
+    delete[] m;
+}
+
+void Imagen::PutImagen(int posi, int posj, const Imagen & img, Tipo_Pegado t){
+    assert(posi + img.nf < nf && posj + img.nc < nc);
+
+    for (int i = 0; i < img.nf; i++)
+        for (int j = 0; j < img.nc; j++)
+            if (posi + i >= 0 && posi + i < nf && posj + j >= 0 && posj + j < nc)
+            {
+                if (img(i,j).transp != 0) {
+                    if (t == OPACO)
+                        (*this).operator()(posi + i, posj + j) = img(i, j);
+                    else if (t == BLENDING) {
+                        (*this).operator()(posi + i, posj + j) = media_pixeles((*this).operator()(posi + i, posj + j), img(i, j));
+                    }
+                }
+            }
 }
 
 const Pixel &Imagen::operator()(int i, int j) const {
-	return datos[i][j];
+    assert(i >= 0 && i < nf && j >= 0 && j < nc);
+	return data[i][j];
 }
 
 Pixel &Imagen::operator()(int i, int j) {
-	return datos[i][j];
-}
-
-int Imagen::getFilas() const {
-	return datos.size();
-}
-
-int Imagen::getColumnas() const {
-	return datos[0].size();
+    assert(i >= 0 && i < nf && j >= 0 && j < nc);
+	return data[i][j];
 }
 
 Imagen Imagen::Rota(double angulo) const {
@@ -99,22 +257,5 @@ Imagen Imagen::Rota(double angulo) const {
     }
     return Iout;
 }
-
-void EscribirImagen(const char nombre[], const Imagen & I){
-	// TODO Método EscribirImagen
-}
-
-void LeerImagen(const char nombre[], Imagen & I){
-	// TODO Método LeerImagen
-}
-
-void Imagen::PutImagen(int posi, int posj, const Imagen & I, Tipo_Pegado t){
-	// TODO Método PutImagen
-}
-
-Imagen Imagen::ExtraerImagen(int posi, int posj, int dimi, int dimj) const{
-	// TODO Método ExtraerImagen
-}
-
 
 // TODO Ambos Iteradores

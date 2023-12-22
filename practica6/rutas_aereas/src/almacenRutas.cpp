@@ -10,7 +10,7 @@
 #include "almacenRutas.h"
 using namespace std;
 
-#define MAGIC_CAD "Rutas"
+#define MAGIC_CAD "#Rutas"
 
 AlmacenRutas::AlmacenRutas(const map<string, Ruta> &rutas) {
 	this->rutas = rutas;

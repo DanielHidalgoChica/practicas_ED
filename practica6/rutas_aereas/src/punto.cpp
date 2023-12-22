@@ -29,7 +29,10 @@ void Punto::setLongitud(double lon){
 }
 
 bool Punto::operator==(const Punto &p) const{
-	return (latitud == p.latitud && longitud == p.longitud);
+    bool iguales;
+    bool igual_long = ((longitud - p.longitud) < 0.01);
+    bool igual_lat = ((latitud - p.latitud) < 0.01);
+    return(igual_long && igual_lat);
 }
 
 ostream & operator<<(ostream & os, const Punto &p){

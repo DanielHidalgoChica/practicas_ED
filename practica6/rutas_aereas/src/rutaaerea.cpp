@@ -1,10 +1,16 @@
 /**
- * @file pruebapegado.cpp
+ * @file rutaaerea.cpp
  *
  * @author Arturo Olivares Martos
  * @author Daniel Hidalgo Chica
  *
- * @brief // TODO: TERMINAR brief
+ * @brief Programa que muestra por pantalla las rutas aereas de una aerolinea.
+ *
+ * Como argumento, recibe un almacen de rutas,
+ * y permite al usuario elegir una de ellas para mostrarla en un mapa del mundo.
+ *
+ * Se muestra por pantalla el nombre de los paises por los que pasa la ruta y, en la imagen del mapa del mundo,
+ * se muestran las banderas de los paises por los que pasa la ruta y un avion que va de un pais a otro.
  *
  * @param fichero_paises Fichero con la informacion de los paises
  * @param mapa_mundo Nombre de la imagen con el mapa del mundo
@@ -17,33 +23,29 @@
  * Un ejemplo de ejecución es:
  * Ejemplo de uso:
  * @code{.sh}
- * ruta_aerea fichero_paises.txt mapa_mundo.txt ./dir_banderas almacen_rutas.txt avion.ppm mascara_avion.pgm
- * // TODO: TERMINAR
+ * ./rutaaerea ./datos/paises.txt ./datos/imagenes/mapas/mapa1.ppm ./datos/imagenes/banderas/ ./datos/almacen_rutas.txt ./datos/imagenes/aviones/avion3.ppm ./datos/imagenes/aviones/mascara_avion3.pgm
+ * Las rutas:
+ * R1 5 (34.5204,69.2008) (52.5079,13.4261) (7.40665,12.3446) (-0.186596,-78.4305) (40.4005,-3.59165)
+ * R2 8 (58.6954,-96) (35.0869,-103.723) (-12.0553,-77.0452) (40.4005,-3.59165) (37.9438,104.136) (-27.7871,133.281) (35.6735,139.71) (62.8865,61.5512)
+ * R3 5 (17.2464,-19.6706) (4.28364,-74.224) (51.5289,-0.101599) (62.8865,61.5512) (37.9438,104.136)
+ * R4 11 (14.4225,-87.6343) (48.8589,2.34706) (24.7259,46.8225) (58.6954,-96) (35.0869,-103.723) (-12.0553,-77.0452) (40.4005,-3.59165) (37.9438,104.136) (-27.7871,133.281) (35.6735,139.71) (62.8865,61.5512)
+ * R5 5 (52.7608,8.74761) (-19.0519,29.1528) (-34.6159,-58.4333) (58.6954,-96) (52.7608,8.74761)
+ *
+ * Introduzca el codigo de una ruta
+ * R1
+ * Afganistan Alemania Camerun Ecuador España
+ *
  * @endcode
  *
- * Este ejemplo muestra cómo utilizar el ejecutable **ruta_aerea** para representar una rura.
+ * El programa genera la siguiente imagen:
  *
- * // TODO: Terminar imágenes
- * <div style="text-align: center;">
- *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
- *     <img src="vacas.png" alt="Imagen Original" style="border: none;" />
- *     <br>
- *     <small>Imagen Original</small>
- *   </div>
- *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
- *     <img src="Ex_Recortada.png" alt="Imagen Superpuesta Blending" style="border: none;" />
- *     <br>
- *     <small>Imagen Superpuesta usando el tipo de pegado Blending</small>
- *   </div>
- *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
- *     <img src="Ex_Recortada.png" alt="Imagen Superpuesta Opaco" style="border: none;" />
- *     <br>
- *     <small>Imagen Superpuesta usando el tipo de pegado Opaco</small>
- *   </div>
+ * <div style="display: inline-block; text-align: center; margin: 0 3em;">
+ *   <img src="R1_Mapa.png" alt="Imagen Ruta 1" style="border: none;" />
+ *   <br>
+ *   <small>Imagen Generada para la Ruta 1</small>
  * </div>
  */
 
-// TODO: revisar formatos E/S
 #include "almacenRutas.h"
 #include "paises.h"
 #include "imagen.h"

@@ -115,25 +115,36 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classRuta.html#a6e12ea1f717227690623fa33c6c7e272">   46</a></span>&#160;ostream &amp; <a class="code" href="ruta_8cpp.html#a6e12ea1f717227690623fa33c6c7e272">operator&lt;&lt;</a>(ostream &amp; os, <span class="keyword">const</span> <a class="code" href="classRuta.html">Ruta</a> &amp; r) {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    os &lt;&lt; r.codigo &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    list&lt;Punto&gt;::const_iterator it;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span> (it = r.puntos.begin(); it != r.puntos.end(); ++it) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        os &lt;&lt; *it &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classRuta.html#ade5b5176a2d6a925bf5f97233132bc23">   55</a></span>&#160;istream &amp; <a class="code" href="ruta_8cpp.html#ade5b5176a2d6a925bf5f97233132bc23">operator&gt;&gt;</a>(istream &amp; is, <a class="code" href="classRuta.html">Ruta</a> &amp; r) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">string</span> codigo;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    list&lt;Punto&gt; puntos;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    is &gt;&gt; codigo;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    r.<a class="code" href="classRuta.html#ac282d61bb39a0657d7ab1d42273b6c2a">setCodigo</a>(codigo);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classPunto.html">Punto</a> p;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">while</span> (is &gt;&gt; p) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        puntos.push_back(p);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    r.<a class="code" href="classRuta.html#a7a2b5746e7e92e864b05be33e23b0b07">setPuntos</a>(puntos);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> is;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    os &lt;&lt; r.<a class="code" href="classRuta.html#a5108b2783f884cc5cf1317b44130f4de">getNumPuntos</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    list&lt;Punto&gt;::const_iterator it;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (it = r.puntos.begin(); it != r.puntos.end(); ++it) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        os &lt;&lt; *it &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classRuta.html#ade5b5176a2d6a925bf5f97233132bc23">   57</a></span>&#160;istream &amp; <a class="code" href="ruta_8cpp.html#ade5b5176a2d6a925bf5f97233132bc23">operator&gt;&gt;</a>(istream &amp; is, <a class="code" href="classRuta.html">Ruta</a> &amp; r) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">string</span> codigo;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> numPuntos;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    list&lt;Punto&gt; puntos;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    is &gt;&gt; codigo;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    r.<a class="code" href="classRuta.html#ac282d61bb39a0657d7ab1d42273b6c2a">setCodigo</a>(codigo);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span> (codigo.length()&gt;0) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        is &gt;&gt; numPuntos;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classPunto.html">Punto</a> p;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; numPuntos; ++i) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            is &gt;&gt; p;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            puntos.push_back(p);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        r.<a class="code" href="classRuta.html#a7a2b5746e7e92e864b05be33e23b0b07">setPuntos</a>(puntos);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> is;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="ttc" id="aclassPunto_html"><div class="ttname"><a href="classPunto.html">Punto</a></div><div class="ttdoc">TDA Punto.</div><div class="ttdef"><b>Definition:</b> <a href="punto_8h_source.html#l00023">punto.h:23</a></div></div>
 <div class="ttc" id="aclassRuta_html"><div class="ttname"><a href="classRuta.html">Ruta</a></div><div class="ttdoc">TDA Ruta.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8h_source.html#l00026">ruta.h:26</a></div></div>
 <div class="ttc" id="aclassRuta_html_a1020b0a24a1212f30f4f74284bec3597"><div class="ttname"><a href="classRuta.html#a1020b0a24a1212f30f4f74284bec3597">Ruta::Ruta</a></div><div class="ttdeci">Ruta()</div><div class="ttdoc">Constructor por defecto de la clase.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8h_source.html#l00036">ruta.h:36</a></div></div>
@@ -145,7 +156,7 @@ $(function() {
 <div class="ttc" id="aclassRuta_html_ac282d61bb39a0657d7ab1d42273b6c2a"><div class="ttname"><a href="classRuta.html#ac282d61bb39a0657d7ab1d42273b6c2a">Ruta::setCodigo</a></div><div class="ttdeci">void setCodigo(string codigo)</div><div class="ttdoc">Método que modifica el codigo de la ruta.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8cpp_source.html#l00017">ruta.cpp:17</a></div></div>
 <div class="ttc" id="aclassRuta_html_adb986012b262e0ec7894445d9ef316be"><div class="ttname"><a href="classRuta.html#adb986012b262e0ec7894445d9ef316be">Ruta::getPuntos</a></div><div class="ttdeci">const list&lt; Punto &gt; &amp; getPuntos() const</div><div class="ttdoc">Método que devuelve la lista de puntos de la ruta.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8cpp_source.html#l00030">ruta.cpp:30</a></div></div>
 <div class="ttc" id="aruta_8cpp_html_a6e12ea1f717227690623fa33c6c7e272"><div class="ttname"><a href="ruta_8cpp.html#a6e12ea1f717227690623fa33c6c7e272">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const Ruta &amp;r)</div><div class="ttdoc">Sobrecarga del operador de salida.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8cpp_source.html#l00046">ruta.cpp:46</a></div></div>
-<div class="ttc" id="aruta_8cpp_html_ade5b5176a2d6a925bf5f97233132bc23"><div class="ttname"><a href="ruta_8cpp.html#ade5b5176a2d6a925bf5f97233132bc23">operator&gt;&gt;</a></div><div class="ttdeci">istream &amp; operator&gt;&gt;(istream &amp;is, Ruta &amp;r)</div><div class="ttdoc">Sobrecarga del operador de entrada.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8cpp_source.html#l00055">ruta.cpp:55</a></div></div>
+<div class="ttc" id="aruta_8cpp_html_ade5b5176a2d6a925bf5f97233132bc23"><div class="ttname"><a href="ruta_8cpp.html#ade5b5176a2d6a925bf5f97233132bc23">operator&gt;&gt;</a></div><div class="ttdeci">istream &amp; operator&gt;&gt;(istream &amp;is, Ruta &amp;r)</div><div class="ttdoc">Sobrecarga del operador de entrada.</div><div class="ttdef"><b>Definition:</b> <a href="ruta_8cpp_source.html#l00057">ruta.cpp:57</a></div></div>
 <div class="ttc" id="aruta_8h_html"><div class="ttname"><a href="ruta_8h.html">ruta.h</a></div><div class="ttdoc">Fichero cabecera del TDA Ruta.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

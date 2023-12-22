@@ -252,7 +252,7 @@ public:
 
 	 /**
 	  * @brief Devuelve un iterador constante al final del mapa
-	  * @return  Iterador constante al final del mapa
+	  * @return Iterador constante al final del mapa
 	  */
 	 const_iterator end() const {
 		 const_iterator i;
@@ -260,8 +260,8 @@ public:
 		 return i;
 	 }
 
-	friend ostream & operator<<(ostream & os, const AlmacenRutas& almacen);
-	friend istream & operator>>(istream & is, AlmacenRutas& almacen);
+	friend ostream & operator<<(ostream & os, const AlmacenRutas& ar);
+	friend istream & operator>>(istream & is, AlmacenRutas& ar);
 };
 
 /**

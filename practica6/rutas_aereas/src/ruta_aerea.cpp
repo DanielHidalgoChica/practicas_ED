@@ -1,11 +1,49 @@
 /**
- * @file ruta_aerea.cpp
- * @brief
+ * @file pruebapegado.cpp
  *
  * @author Arturo Olivares Martos
  * @author Daniel Hidalgo Chica
+ *
+ * @brief // TODO: TERMINAR brief
+ *
+ * @param fichero_paises Fichero con la informacion de los paises
+ * @param mapa_mundo Nombre de la imagen con el mapa del mundo
+ * @param dir_banderas Directorio con las banderas
+ * @param almacen_rutas Fichero con el almacen de rutas
+ * @param avion Nombre de la imagen con el avion. Tipo PPM
+ * @param mascara_avion Nombre de la imagen de la mascara del avion. Tipo PGM
+ *
+ *
+ * Un ejemplo de ejecución es:
+ * Ejemplo de uso:
+ * @code{.sh}
+ * ruta_aerea fichero_paises.txt mapa_mundo.txt ./dir_banderas almacen_rutas.txt avion.ppm mascara_avion.pgm
+ * // TODO: TERMINAR
+ * @endcode
+ *
+ * Este ejemplo muestra cómo utilizar el ejecutable **ruta_aerea** para representar una rura.
+ *
+ * // TODO: Terminar imágenes
+ * <div style="text-align: center;">
+ *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
+ *     <img src="vacas.png" alt="Imagen Original" style="border: none;" />
+ *     <br>
+ *     <small>Imagen Original</small>
+ *   </div>
+ *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
+ *     <img src="Ex_Recortada.png" alt="Imagen Superpuesta Blending" style="border: none;" />
+ *     <br>
+ *     <small>Imagen Superpuesta usando el tipo de pegado Blending</small>
+ *   </div>
+ *   <div style="display: inline-block; text-align: center; margin: 0 3em;">
+ *     <img src="Ex_Recortada.png" alt="Imagen Superpuesta Opaco" style="border: none;" />
+ *     <br>
+ *     <small>Imagen Superpuesta usando el tipo de pegado Opaco</small>
+ *   </div>
+ * </div>
  */
 
+// TODO: revisar formatos E/S
 #include "almacenRutas.h"
 #include "paises.h"
 #include "imagen.h"
@@ -14,12 +52,14 @@
 int main (int argc, char* argv[]) {
     if (argc!=7){
         cout<<"Los parametros son:"<<endl;
-        cout<<"1.-Fichero con la informacion de los paises"<<endl;
-        cout<<"2.-Nombre de la imagen con el mapa del mundo"<<endl;
-        cout<<"3.-Directorio con las banderas"<<endl;
-        cout<<"4.-Fichero con el almacen de rutas"<<endl;
-        cout<<"5.- Nombre de la imagen con el avion"<<endl;
-        cout<<"6.- Nombre de la imagen de la mascara del avion"<<endl;
+        cout<<"1 - Fichero con la informacion de los paises"<<endl;
+        cout<<"2 - Nombre de la imagen con el mapa del mundo"<<endl;
+        cout<<"3 - Directorio con las banderas"<<endl;
+        cout<<"4 - Fichero con el almacen de rutas"<<endl;
+        cout<<"5 - Nombre de la imagen con el avion"<<endl;
+        cout<<"6 - Nombre de la imagen de la mascara del avion"<<endl;
+
+		cout << "Uso: " << argv[0] << " <fichero_paises> <mapa_mundo> <dir_banderas> <almacen_rutas> <avion> <mascara_avion>" << endl;
 
         return -1;
     }
@@ -67,7 +107,7 @@ int main (int argc, char* argv[]) {
 
     while (it_r != route.end()) {
         point1=*it_r;
-        coord_point1 = point1.coordenadasMapa(mapa.GetColumnas(), mapa.GetFilas());
+        coord_point1 = point1.coordenadasMapa(mapa.getColumnas(), mapa.getFilas());
 
         // Extraigo país
         pais = *(paises.find(point1));
@@ -84,9 +124,9 @@ int main (int argc, char* argv[]) {
         ++it_r;
         if (it_r != route.end()) {
             point2=*it_r;
-            coord_point2 = point2.coordenadasMapa(mapa.GetColumnas(), mapa.GetFilas());
-            coord_point_midpoint = point1.punto_medio_en_mapa(point2, mapa.GetColumnas(), mapa.GetFilas());
-            orientation_angle = point1.angulo_en_mapa(point2, mapa.GetColumnas(), mapa.GetFilas());
+            coord_point2 = point2.coordenadasMapa(mapa.getColumnas(), mapa.getFilas());
+            coord_point_midpoint = point1.punto_medio_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
+            orientation_angle = point1.angulo_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
 
             // Pego los 3 aviones correspondientes
             Tipo_Pegado tp_op = OPACO;
@@ -96,6 +136,8 @@ int main (int argc, char* argv[]) {
             mapa.PutImagen(coord_point2.first, coord_point2.second, avion_rotado, tp_op);
         } // if (it_r != route.end())
     } // while (it_r != route.end())
+
+	// TODO: Revisar final. Guardar, etc.
 
     return 0;
 }

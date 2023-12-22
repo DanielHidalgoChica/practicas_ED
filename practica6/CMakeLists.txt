@@ -19,6 +19,7 @@ add_library(image ${BASE_FOLDER}/src/imagen.cpp  ${BASE_FOLDER}/src/imagenES.cpp
         rutas_aereas/include/paises.h
         rutas_aereas/src/imagen.cpp
         rutas_aereas/include/imagen.h
+        rutas_aereas/src/ruta_aerea.cpp
 )
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebarotacion.cpp)

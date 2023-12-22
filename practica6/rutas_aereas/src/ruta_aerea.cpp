@@ -155,7 +155,7 @@ int main (int argc, char* argv[]) {
 
             // Pego los 3 aviones correspondientes
             Tipo_Pegado tp_op = OPACO;
-            avion_rotado = avion.Rota(-orientation_angle);
+            avion_rotado = avion.Rota(orientation_angle);
             mapa.PutImagen(coord_point_midpoint.first, coord_point_midpoint.second, avion_rotado, tp_op);
             mapa.PutImagen(coord_point1.first, coord_point1.second, avion_rotado, tp_op);
             mapa.PutImagen(coord_point2.first, coord_point2.second, avion_rotado, tp_op);

@@ -10,21 +10,21 @@
 
 Punto::Punto(): latitud(0), longitud(0){}
 
-Punto::Punto(int lat, int lon): latitud(lat), longitud(lon){}
+Punto::Punto(double lat, double lon): latitud(lat), longitud(lon){}
 
-int Punto::getLatitud() const{
+double Punto::getLatitud() const{
 	return latitud;
 }
 
-int Punto::getLongitud() const{
+double Punto::getLongitud() const{
 	return longitud;
 }
 
-void Punto::setLatitud(int lat){
+void Punto::setLatitud(double lat){
 	latitud = lat;
 }
 
-void Punto::setLongitud(int lon){
+void Punto::setLongitud(double lon){
 	longitud = lon;
 }
 
@@ -38,10 +38,32 @@ ostream & operator<<(ostream & os, const Punto &p){
 }
 
 istream & operator>>(istream & is, Punto &p){
-	int lat, lon;
+	double lat, lon;
 	char c;
 	is >> c >> lat >> c >> lon >> c;
 	p.setLatitud(lat);
 	p.setLongitud(lon);
 	return is;
+}
+
+pair<int, int> Punto::coordenadasMapa(int num_columnas, int num_filas) const {
+    int col = (int) ((longitud + 180) * num_columnas / 360);
+    int fila = (int) ((90 - latitud) * num_filas / 180);
+    return pair<int, int>(col, fila);
+}
+
+pair<int,int> Punto::punto_medio_en_mapa(const Punto & p, int num_columnas, int num_filas) const{
+    pair<int,int> p1 = coordenadasMapa(num_columnas, num_filas);
+    pair<int,int> p2 = p.coordenadasMapa(num_columnas, num_filas);
+    return pair<int,int>((p1.first+p2.first)/2,(p1.second+p2.second)/2);
+}
+
+double Punto::angulo_en_mapa(const Punto & p, int num_columnas, int num_filas) const{
+    double angle;
+    pair<int,int> p1 = coordenadasMapa(num_columnas, num_filas);
+    pair<int,int> p2 = p.coordenadasMapa(num_columnas, num_filas);
+    if (p1.first != p2.first) angle = atan((p2.second-p1.second)/(p2.first-p1.first));
+    else if (p2.second > p1.second) angle = M_PI/2;
+    else angle = -M_PI/2;
+    return angle;
 }

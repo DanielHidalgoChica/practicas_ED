@@ -34,7 +34,7 @@ Paises::iterator Paises::find(const Pais &pais) {
 }
 
 ostream &operator<<(ostream &os, const Paises &paises) {
-	Paises::const_iterator it;
+	Paises::iterator it;
 	for (it = paises.begin(); it != paises.end(); ++it) {
 		os << *it << "\t";
 	}

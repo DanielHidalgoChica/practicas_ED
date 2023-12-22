@@ -9,6 +9,8 @@
 #define PRACTICAFINAL_PUNTO_H
 
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
 /**
@@ -24,13 +26,13 @@ private:
 	/**
 	 * @brief Latitud del punto
 	 */
-	int latitud;
-	// TODO:Cambiar a double
+	double latitud;
+	// TODO:Cambiar a double HECHOO
 
 	/**
 	 * @brief Longitud del punto
 	 */
-	int longitud;
+	double longitud;
 
 
 
@@ -46,31 +48,31 @@ public:
 	 * @param lat Latitud del punto
 	 * @param lon Longitud del punto
 	 */
-	Punto(int lat, int lon);
+	Punto(double lat, double lon);
 
 	/**
 	 * @brief Devuelve la latitud del punto
 	 * @return Latitud del punto
 	 */
-	int getLatitud() const;
+	double getLatitud() const;
 
 	/**
 	 * @brief Devuelve la longitud del punto
 	 * @return Longitud del punto
 	 */
-	int getLongitud() const;
+	double getLongitud() const;
 
 	/**
 	 * @brief Asigna una latitud al punto
 	 * @param lat Latitud a asignar
 	 */
-	void setLatitud(int lat);
+	void setLatitud(double lat);
 
 	/**
 	 * @brief Asigna una longitud al punto
 	 * @param lon Longitud a asignar
 	 */
-	void setLongitud(int lon);
+	void setLongitud(double lon);
 
 	/**
 	 * @brief Sobrecarga del operador ==
@@ -80,9 +82,32 @@ public:
 	 */
 	bool operator==(const Punto & p) const;
 
-	// TODO: Pasar a coordenadas en mapa
-	// TODO: Punto medio usando coordenadas
-	// TODO: Ángulo de la recta que los une en coordenadas
+	// TODO: Pasar a coordenadas en mapa HECHOO
+    /*
+     * @brief Pasa de coordenadas geográficas a coordenadas en el mapa
+     * @param num_columnas Número de columnas del mapa
+     * @param num_filas Número de filas del mapa
+     * @return Par de enteros con las coordenadas en el mapa
+     */
+    pair<int, int> coordenadasMapa(int num_columnas, int num_filas) const;
+
+	// TODO: Punto medio usando coordenadas HECHOO
+    /* @brief Punto medio entre dos puntos
+     * @param p Punto con el que calcular el punto medio
+     * @param num_columnas Número de columnas del mapa
+     * @param num_filas Número de filas del mapa
+     * @return Par de enteros con las coordenadas en el mapa del punto medio
+     */
+    pair<int,int> punto_medio_en_mapa(const Punto & p, int num_columnas, int num_filas) const;
+
+	// TODO: Ángulo de la recta que los une en coordenadas HECHOO
+    /* @brief Ángulo de la recta que une dos puntos
+     * @param p Punto con el que calcular el ángulo
+     * @param num_columnas Número de columnas del mapa
+     * @param num_filas Número de filas del mapa
+     * @return Ángulo orientado de la recta que une los dos puntos
+     */
+    double angulo_en_mapa(const Punto & p, int num_columnas, int num_filas) const;
 
 	friend ostream & operator<<(ostream & os, const Punto & p);
 	friend istream & operator>>(istream & is, Punto & p);

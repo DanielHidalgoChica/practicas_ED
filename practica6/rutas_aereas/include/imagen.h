@@ -152,6 +152,7 @@ public:
 	 */
 	Imagen ExtraerImagen(int i, int j, int nf, int nc) const;
 
+    Imagen Rota(double rads) const;
 
 	class const_iterator;   //debemos declara de forma adelantada esta clase para
 							//avisar a iterator de su existencia

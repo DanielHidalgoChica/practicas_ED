@@ -57,8 +57,10 @@ istream & operator>>(istream & is, AlmacenRutas & ar) {
 		exit (-1);
 	}
 
+	int i=0;
 	while (is >> ruta) {
 		ar.insertarRuta(ruta);
+		cout << "Tomo ruta " << i++ << endl;
 	}
 
 	return is;

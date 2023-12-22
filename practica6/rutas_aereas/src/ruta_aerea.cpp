@@ -162,11 +162,8 @@ int main (int argc, char* argv[]) {
         } // if (it_r != route.end())
     } // while (it_r != route.end())
 
-	// TODO: Revisar final. Guardar, etc.
     string result_path = RESULT_PATH + route.getCodigo() + string("_Mapa.ppm");
     mapa.EscribirImagen(result_path.c_str());
-
-
 
     return 0;
 }

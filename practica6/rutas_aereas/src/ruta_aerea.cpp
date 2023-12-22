@@ -77,23 +77,33 @@ int main (int argc, char* argv[]) {
 	}
 	file.close();
 
+	cout << "Hola" << endl;
+
 	Imagen mapa;
 	mapa.LeerImagen(argv[2]);
 
 	Imagen avion;
 	avion.LeerImagen(argv[5], argv[6]); // Leemos con la máscara
 
+	cout << "Hola2" << endl;
+
     AlmacenRutas Ar; // Leemos el almacen de rutas
     file.open (argv[4]);
-	if (file)
+	cout << "Hola3" << endl;
+	if (file){
+		cout << "Hola4" << endl;
 		file >> Ar;
+		cout << "Hola5" << endl;
+	}
 	else {
 		cout << "Error de apertura del fichero " << argv[4] << endl;
 		return -1;
 	}
 	file.close();
 
-    cout<<"Las rutas: "<<endl<<Ar; // Muestra todas las rutas disponibles
+	// Muestra todas las rutas disponibles
+    cout<<"Las rutas: "<<endl;
+	cout << Ar << endl;
     cout<<"Introduzca el codigo de una ruta"<<endl;
     string id_ruta; // Ruta
     cin>>id_ruta;
@@ -141,7 +151,7 @@ int main (int argc, char* argv[]) {
             point2=*it_r;
             coord_point2 = point2.coordenadasMapa(mapa.getColumnas(), mapa.getFilas());
             coord_point_midpoint = point1.punto_medio_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
-            orientation_angle = point2.angulo_en_mapa(point1, mapa.getColumnas(), mapa.getFilas());
+            orientation_angle = point1.angulo_en_mapa(point2, mapa.getColumnas(), mapa.getFilas());
 
             // Pego los 3 aviones correspondientes
             Tipo_Pegado tp_op = OPACO;

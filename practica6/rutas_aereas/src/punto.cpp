@@ -65,8 +65,8 @@ double Punto::angulo_en_mapa(const Punto & p, int num_columnas, int num_filas) c
     double angle;
     pair<int,int> p1 = coordenadasMapa(num_columnas, num_filas);
     pair<int,int> p2 = p.coordenadasMapa(num_columnas, num_filas);
-    if (p1.first != p2.first) angle = atan((p2.second-p1.second)/(p2.first-p1.first));
-    else if (p2.second > p1.second) angle = M_PI/2;
+    if (p1.second != p2.second) angle = atan((p2.first-p1.first)/(p2.second-p1.second));
+    else if (p2.first > p1.first) angle = M_PI/2;
     else angle = -M_PI/2;
     return angle;
 }
